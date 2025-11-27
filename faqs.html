@@ -373,78 +373,133 @@
         
           
         <!-- Contact Area start -->
-        <section class="contact-area py-130 rpy-100 rel z-1">
-            <div class="container">
-                <div class="row gap-100 align-items-center">
-                    <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1500" data-aos-offset="50">
-                        <div class="contact-image-part style-two rel rmb-55">
-                            <div class="experience-years">
-                                <h6 class="title">Q & A <i class="far fa-arrow-right"></i></h6>
-                                <h6>We Have 25 Years Of Experience</h6>
-                            </div>
-                            <img src="assets/images/contact/form-right.jpg" alt="Contact">
-                        </div>
+<section class="contact-area py-130 rpy-100 rel z-1">
+    <div class="container">
+        <div class="row gap-100 align-items-center">
+            
+            <!-- IMAGEN LATERAL -->
+            <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1500" data-aos-offset="50">
+                <div class="contact-image-part style-two rel rmb-55">
+                    <div class="experience-years">
+                        <h6 class="title">Q & A <i class="far fa-arrow-right"></i></h6>
+                        <h6>We Have 25 Years Of Experience</h6>
                     </div>
-                    <div class="col-lg-6">
-                        <div class="contact-form-part" data-aos="fade-right" data-aos-duration="1500" data-aos-offset="50">
-                            <div class="section-title mb-35">
-                                <span class="sub-title mb-10">Get In Touch</span>
-                                <h2>Talk About Your Next Dream Projects</h2>
-                            </div>
-                            <form id="contactForm" class="contactForm" name="contactForm" action="https://html.webtend.net/2024/limestone/assets/php/form-process.php" method="post">
-                                <div class="row gap-20">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <input type="text" id="name" name="name" class="form-control" value="" placeholder="Full Name" required data-error="Please enter your Name">
-                                            <div class="help-block with-errors"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <input type="text" id="phone_number" name="phone_number" class="form-control" value="" placeholder="Phone No" required data-error="Please enter your Phone No">
-                                            <div class="help-block with-errors"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <input type="email" id="email" name="email" class="form-control" value="" placeholder="Email Address" required data-error="Please enter your Email">
-                                            <div class="help-block with-errors"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <input type="text" id="subject" name="subject" class="form-control" value="" placeholder="Subject" required data-error="Please enter your Subject">
-                                            <div class="help-block with-errors"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <textarea name="message" id="message" class="form-control" rows="4" placeholder="Message" required data-error="Please enter your Message"></textarea>
-                                            <div class="help-block with-errors"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <div class="form-group mb-0">
-                                            <button type="submit" class="theme-btn">Send Message Us <i class="far fa-angle-double-right"></i></button>
-                                            <div id="msgSubmit" class="hidden"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+                    <img src="assets/images/contact/form-right.jpg" alt="Contact">
                 </div>
             </div>
-            <div class="bg-lines">
-               <span></span><span></span>
-               <span></span><span></span>
+
+            <!-- FORMULARIO EXTENDIDO -->
+            <div class="col-lg-6">
+                <div class="contact-form-part" data-aos="fade-right" data-aos-duration="1500" data-aos-offset="50">
+                    
+                    <div class="section-title mb-35">
+                        <span class="sub-title mb-10">Get In Touch</span>
+                        <h2>Talk About Your Next Dream Projects</h2>
+                    </div>
+
+                    <form id="contactForm" class="contactForm" name="contactForm"
+                        action="https://html.webtend.net/2024/limestone/assets/php/form-process.php" method="post">
+
+                        <div class="row gap-20">
+
+                            <!-- Nombre completo -->
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input type="text" id="name" name="name" class="form-control" placeholder="Nombre completo" required>
+                                </div>
+                            </div>
+
+                            <!-- Empresa -->
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input type="text" id="company" name="company" class="form-control" placeholder="Empresa (opcional)">
+                                </div>
+                            </div>
+
+                            <!-- Teléfono -->
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input type="text" id="phone_number" name="phone_number" class="form-control" placeholder="Teléfono / WhatsApp" required>
+                                </div>
+                            </div>
+
+                            <!-- Correo -->
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input type="email" id="email" name="email" class="form-control" placeholder="Correo electrónico" required>
+                                </div>
+                            </div>
+
+                            <!-- Tipo de concreto (SELECT) -->
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <select id="concrete_type" name="concrete_type" class="form-control" required>
+                                        <option value="" selected disabled>Tipo de concreto</option>
+                                        <option value="Concreto convencional">Concreto convencional</option>
+                                        <option value="Concreto Estructural Clase 1">Concreto Estructural Clase 1</option>
+                                        <option value="Concreto Clase 2">Concreto Clase 2</option>
+                                        <option value="Concreto MR">Concreto MR</option>
+                                        <option value="Concreto arquitectónico">Concreto arquitectónico</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Cantidad m3 -->
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input type="number" id="quantity" name="quantity" class="form-control" placeholder="Cantidad estimada (m³)" required>
+                                </div>
+                            </div>
+
+                            <!-- Ubicación -->
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <input type="text" id="location" name="location" class="form-control" placeholder="Ubicación de la obra" required>
+                                </div>
+                            </div>
+
+                            <!-- Fecha aproximada -->
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <input type="date" id="pour_date" name="pour_date" class="form-control" placeholder="Fecha aproximada de vaciado" required>
+                                </div>
+                            </div>
+
+                            <!-- Comentarios -->
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <textarea name="message" id="message" class="form-control" rows="4" placeholder="Comentarios adicionales"></textarea>
+                                </div>
+                            </div>
+
+                            <!-- Botón -->
+                            <div class="col-sm-12">
+                                <div class="form-group mb-0">
+                                    <button type="submit" class="theme-btn">
+                                        Solicitar cotización <i class="far fa-angle-double-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </form>
+                </div>
             </div>
-            <div class="for-contact-bg">
-                <img src="assets/images/contact/contact-bg-dots.png" alt="Dots">
-            </div>
-        </section>
-        <!-- Contact Area end -->
-          
+        </div>
+    </div>
+
+    <!-- Fondo decorativo -->
+    <div class="bg-lines">
+        <span></span><span></span>
+        <span></span><span></span>
+    </div>
+    <div class="for-contact-bg">
+        <img src="assets/images/contact/contact-bg-dots.png" alt="Dots">
+    </div>
+</section>
+<!-- Contact Area end -->
+
            
         <!-- footer area start -->
         <footer class="main-footer rel z-1">

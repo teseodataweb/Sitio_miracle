@@ -4472,6 +4472,7 @@ h6, .h6, .slide-content .sub-title, .blog-item .image .date {
     text-align: center;
 }
 
+
     @media only screen and (max-width: 375px) {
       .service-item.style-two {
         padding-left: 30px;
@@ -5023,8 +5024,9 @@ h6, .h6, .slide-content .sub-title, .blog-item .image .date {
     margin-left: 15px;
     margin-right: 15px; }
   .projects-active .slick-dots {
-    margin-top: 25px; }
-
+    margin-top: 25px;
+   }
+    
 .project-item {
   position: relative;
   margin-bottom: 50px; }
@@ -7497,6 +7499,46 @@ blockquote {
     gap: 10px;
     align-items: center;
 }
+.faq-area-three {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+}
+/* Igualar altura de los bloques del concreto */
+.project-item-two .project-content {
+    min-height: 350px !important; /* Ajusta la altura si quieres */
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Forzar que el contenido superior tenga la misma altura */
+.project-item-two .project-content .top {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* Evitar que títulos o textos rompan el tamaño */
+.project-item-two .project-content .category,
+.project-item-two .project-content h6 {
+    display: block;
+}
+/* Arregla que los bloques se peguen */
+.service-item {
+    height: auto !important;
+    margin-bottom: 40px !important;
+}
+/* Ajuste exclusivo del slider de proyectos */
+.projects-area .projects-active {
+    margin-top: -20px !important;   /* súbelo suavemente */
+    margin-bottom: 40px !important;    /* separa del apartado de abajo */
+}
+
+
+
+
+
 
 
 
