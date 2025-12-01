@@ -7534,6 +7534,12 @@ blockquote {
     margin-top: -20px !important;   /* súbelo suavemente */
     margin-bottom: 40px !important;    /* separa del apartado de abajo */
 }
+.list i.fab {
+    font-weight: 300 !important; /* más delgado */
+    color: #f7941d !important;   /* mismo color naranja */
+    font-size: 16px !important;  /* mismo tamaño de íconos fal */
+}
+
 
 
 
