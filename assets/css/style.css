@@ -7549,6 +7549,109 @@ section.cta-counter-area {
     margin-top: 40px; /* Ajusta el valor a tu gusto */
 }
 
+/* ========================================
+   Estilos para Tipos de Concreto - Services
+   ======================================== */
+
+/* Lista de beneficios mejorada */
+.benefits-list {
+    margin: 0;
+    padding: 0;
+}
+
+.benefits-list li {
+    padding: 8px 0;
+    font-size: 14px;
+    color: #666;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.benefits-list li:last-child {
+    border-bottom: none;
+}
+
+.benefits-list li:hover {
+    padding-left: 5px;
+    color: #333;
+}
+
+.benefits-list li i {
+    font-size: 14px;
+    transition: transform 0.3s ease;
+}
+
+.benefits-list li:hover i {
+    transform: scale(1.2);
+}
+
+/* Badges personalizados para tipos de concreto */
+.project-content .badge {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* Títulos de productos */
+.project-content h5 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.project-content h5 a {
+    color: #1a1a1a;
+    transition: color 0.3s ease;
+}
+
+.project-content h5 a:hover {
+    color: var(--primary-color);
+}
+
+/* Descripción del producto */
+.project-content p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666;
+}
+
+/* Título de beneficios */
+.project-content h6.text-primary {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--primary-color) !important;
+}
+
+/* Botón cotizar */
+.project-content .read-more {
+    display: inline-flex;
+    align-items: center;
+    font-weight: 500;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.project-content .read-more:hover {
+    color: #333;
+}
+
+.project-content .read-more i {
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+}
+
+.project-content .read-more:hover i {
+    transform: translateX(5px);
+}
+
+/* Ajuste de altura mínima para uniformidad */
+.project-item-two .project-content {
+    min-height: 380px !important;
+}
+
 
 
 
