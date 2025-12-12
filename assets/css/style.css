@@ -4518,8 +4518,14 @@ h6, .h6, .slide-content .sub-title, .blog-item .image .date {
     margin-bottom: 80px;
     position: relative;
     padding: 30px 40px 20px;
-    -webkit-box-shadow: 0px 4px 60px rgba(0, 0, 0, 0.07);
-    box-shadow: 0px 4px 60px rgba(0, 0, 0, 0.07); }
+    box-shadow: 0px 4px 60px rgba(0, 0, 0, 0.07);
+
+    /* NUEVO: asegura tamaño uniforme */
+    min-height: 300px;   /* Ajusta según tu diseño */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
     @media only screen and (max-width: 375px) {
       .service-item.style-three {
         padding-left: 30px;
@@ -7538,6 +7544,9 @@ blockquote {
     font-weight: 300 !important; /* más delgado */
     color: #f7941d !important;   /* mismo color naranja */
     font-size: 16px !important;  /* mismo tamaño de íconos fal */
+}
+section.cta-counter-area {
+    margin-top: 40px; /* Ajusta el valor a tu gusto */
 }
 
 
