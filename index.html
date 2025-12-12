@@ -227,59 +227,30 @@
         <!--End Hidden Sidebar -->
        
         
-        <!-- Slider Section Start -->
-        <section class="main-slider-area rel z-1">
-            <div class="main-slider-active">
-                <div class="slider-item" style="background-image: url(assets/images/slider/slide-2.png);">
-                    <div class="container">
-                        <div class="slide-content" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
-                            <!--span class="sub-title">Construction Company</span-->
-                            <h1>Líderes En Concreto Premezclado En Puerto Vallarta</h1>
-                            <p>Solidez, calidad y servicio profesional para tus proyectos de construcción.</p>
-                            <!--a href="services.html" class="theme-btn">Explore Services <i class="far fa-angle-double-right"></i></a-->
-                        </div>
-                    </div>
-                    <div class="bg-lines for-black-bg">
-                       <span></span><span></span>
-                       <span></span><span></span>
-                    </div>
-                </div>
-                <div class="slider-item" style="background-image: url(assets/images/slider/slide-1.jpg);">
-                    <div class="container">
-                        <div class="slide-content">
-                            <!--span class="sub-title">Construction Company</span-->
-                            <!--h1>Líderes En Concreto Premezclado En Puerto Vallarta</h1>
-                            <p>Solidez, calidad y servicio profesional para tus proyectos de construcción.</p>
-                            <a href="services.html" class="theme-btn">Explore Services <i class="far fa-angle-double-right"></i></a-->
-                        </div>
-                    </div>
-                    <div class="bg-lines for-black-bg">
-                       <span></span><span></span>
-                       <span></span><span></span>
+        <!-- Hero Video Section Start -->
+        <section class="hero-video-area rel z-1">
+            <div class="hero-video-wrapper">
+                <!-- Video Background -->
+                <video id="hero-video" class="hero-video-bg" autoplay muted playsinline>
+                    <source src="assets/images/slider/video-hero.mp4" type="video/mp4">
+                </video>
+                <!-- Overlay oscuro -->
+                <div class="hero-video-overlay"></div>
+                <!-- Contenido -->
+                <div class="container">
+                    <div class="hero-video-content" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
+                        <h1>Líderes En Concreto Premezclado En Puerto Vallarta</h1>
+                        <p>Solidez, calidad y servicio profesional para tus proyectos de construcción.</p>
+                        <a href="contact.html" class="theme-btn mt-20">Solicitar Cotización <i class="far fa-angle-double-right"></i></a>
                     </div>
                 </div>
-                <div class="slider-item" style="background-image: url(assets/images/slider/slide-1.jpg);">
-                    <div class="container">
-                        <div class="slide-content">
-                            <!--span class="sub-title">Construction Company</span>
-                            <h1>Construction & Building Agency</h1>
-                            <p>Ut enim minima veniam nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid exea consequature</p>
-                            <a href="services.html" class="theme-btn">Explore Services <i class="far fa-angle-double-right"></i></a-->
-                        </div>
-                    </div>
-                    <div class="bg-lines for-black-bg">
-                       <span></span><span></span>
-                       <span></span><span></span>
-                    </div>
+                <div class="bg-lines for-black-bg">
+                   <span></span><span></span>
+                   <span></span><span></span>
                 </div>
             </div>
-            <div class="dot-wrap">
-                <div class="container rel">
-                    <div class="main-slider-dots"></div>
-                </div>
-            </div>
-        </section-->
-        <!-- Slider Section End -->
+        </section>
+        <!-- Hero Video Section End -->
         
         
        <!-- About Us Area start -->
@@ -1666,6 +1637,33 @@
     <script src="assets/js/jquery.ajaxchimp.min.js"></script>
     <script src="assets/js/form-validator.min.js"></script>
     <script src="assets/js/contact-form-script.js"></script>
+
+    <!-- Hero Video Control - Loop from second 49 to 56 -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const video = document.getElementById('hero-video');
+        const startTime = 49; // Segundo inicial
+        const endTime = 56;   // Segundo final
+
+        if (video) {
+            // Establecer tiempo inicial
+            video.currentTime = startTime;
+
+            // Cuando el video esté listo, reproducir
+            video.addEventListener('loadedmetadata', function() {
+                video.currentTime = startTime;
+                video.play();
+            });
+
+            // Loop al llegar al segundo 56
+            video.addEventListener('timeupdate', function() {
+                if (video.currentTime >= endTime) {
+                    video.currentTime = startTime;
+                }
+            });
+        }
+    });
+    </script>
 
 
     
