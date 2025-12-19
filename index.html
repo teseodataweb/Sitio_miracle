@@ -231,7 +231,7 @@
         <section class="hero-video-area rel z-1">
             <div class="hero-video-wrapper">
                 <!-- Video Background -->
-                <video id="hero-video" class="hero-video-bg" autoplay muted playsinline>
+                <video id="hero-video" class="hero-video-bg" autoplay muted playsinline loop>
                     <source src="assets/images/slider/video-hero.mp4" type="video/mp4">
                 </video>
                 <!-- Overlay oscuro -->
@@ -1638,28 +1638,21 @@
     <script src="assets/js/form-validator.min.js"></script>
     <script src="assets/js/contact-form-script.js"></script>
 
-    <!-- Hero Video Control - Loop from second 49 to 56 -->
+    <!-- Hero Video Control - Autoplay loop completo -->
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         const video = document.getElementById('hero-video');
-        const startTime = 49; // Segundo inicial
-        const endTime = 56;   // Segundo final
 
         if (video) {
-            // Establecer tiempo inicial
-            video.currentTime = startTime;
+            // Habilitar loop nativo del video
+            video.loop = true;
 
-            // Cuando el video esté listo, reproducir
-            video.addEventListener('loadedmetadata', function() {
-                video.currentTime = startTime;
-                video.play();
-            });
+            // Asegurar que empiece desde el inicio
+            video.currentTime = 0;
 
-            // Loop al llegar al segundo 56
-            video.addEventListener('timeupdate', function() {
-                if (video.currentTime >= endTime) {
-                    video.currentTime = startTime;
-                }
+            // Reproducir cuando esté listo
+            video.play().catch(function(error) {
+                console.log('Autoplay bloqueado, requiere interacción del usuario');
             });
         }
     });
