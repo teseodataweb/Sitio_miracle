@@ -15,7 +15,7 @@ Este documento registra todos los cambios realizados durante la corrección del 
 | Sprint 3 | COMPLETADO | 5/5 | 12-Dic-2025 | 12-Dic-2025 |
 | Sprint 4 | COMPLETADO | 6/6 | 12-Dic-2025 | 12-Dic-2025 |
 | Sprint 5 | COMPLETADO | 4/4 | 12-Dic-2025 | 12-Dic-2025 |
-| Sprint 6 | Pendiente | 0/6 | - | - |
+| Sprint 6 | COMPLETADO | 10/10 | 05-Ene-2026 | 05-Ene-2026 |
 
 ---
 
@@ -744,24 +744,153 @@ assets/images/about/about-6.png
 
 ---
 
-## Sprint 6: SEO Avanzado (Opcional)
+## Sprint 6: SEO Avanzado y Correcciones Finales
 
-**Estado:** Pendiente
-**Objetivo:** Mejoras adicionales
+**Estado:** COMPLETADO
+**Objetivo:** SEO avanzado, Open Graph, Schema markup y correcciones HTML
+**Fecha de completado:** 05-Ene-2026
 
 ### Tareas del Sprint
 
-| # | Tarea | Estado |
-|---|-------|--------|
-| 6.1 | Agregar meta keywords | Pendiente |
-| 6.2 | Agregar Open Graph tags | Pendiente |
-| 6.3 | Crear sitemap.xml | Pendiente |
-| 6.4 | Crear robots.txt | Pendiente |
-| 6.5 | Agregar Schema markup | Pendiente |
-| 6.6 | Implementar Analytics | Pendiente |
+| # | Tarea | Estado | Archivos |
+|---|-------|--------|----------|
+| 6.1 | Agregar meta keywords | COMPLETADO | 6 archivos |
+| 6.2 | Agregar Open Graph tags | COMPLETADO | 6 archivos |
+| 6.3 | Crear sitemap.xml | COMPLETADO | sitemap.xml (nuevo) |
+| 6.4 | Crear robots.txt | COMPLETADO | robots.txt (nuevo) |
+| 6.5 | Agregar Schema markup LocalBusiness | COMPLETADO | index.html, contact.html |
+| 6.6 | Implementar Analytics | YA IMPLEMENTADO | Todos los archivos |
+| 6.7 | Eliminar comentarios HTTrack residuales | COMPLETADO | index.html, about.html |
+| 6.8 | Corregir IDs duplicados en accordions | COMPLETADO | index.html, about.html |
+| 6.9 | Corregir HTML mal anidado en banners | COMPLETADO | about.html, contact.html |
+| 6.10 | Corregir estructura HTML rota | COMPLETADO | about.html, services.html |
 
 ### Registro de Cambios
-*Pendiente de iniciar*
+
+#### Tarea 6.1: Meta Keywords
+**Agregado a todos los archivos principales:**
+```html
+<meta name="keywords" content="concreto premezclado, Puerto Vallarta, concretos Miracle, construcción, concreto estructural, concreto MR, obra, cemento, Jalisco">
+<meta name="author" content="Concretos Miracle">
+```
+
+**Archivos modificados:**
+- [x] index.html
+- [x] about.html
+- [x] services.html
+- [x] projects.html
+- [x] blog.html
+- [x] contact.html
+
+---
+
+#### Tarea 6.2: Open Graph y Twitter Cards
+**Agregado a todos los archivos:**
+```html
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://concretosmiracle.com/">
+<meta property="og:title" content="Concretos Miracle | Proveedor de Concreto Premezclado">
+<meta property="og:description" content="Proveedor líder de concreto premezclado en Puerto Vallarta.">
+<meta property="og:image" content="https://concretosmiracle.com/assets/images/logos/logo-miracle-new.png">
+<meta property="og:locale" content="es_MX">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Concretos Miracle">
+<meta name="twitter:description" content="Proveedor líder de concreto premezclado.">
+<meta name="twitter:image" content="https://concretosmiracle.com/assets/images/logos/logo-miracle-new.png">
+```
+
+---
+
+#### Tarea 6.3: Sitemap.xml
+**Archivo creado:** sitemap.xml
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://concretosmiracle.com/</loc>
+        <priority>1.0</priority>
+    </url>
+    <!-- + 6 URLs más -->
+</urlset>
+```
+
+---
+
+#### Tarea 6.4: Robots.txt
+**Archivo creado:** robots.txt
+```
+User-agent: *
+Allow: /
+Disallow: /assets/php/
+Disallow: /dist/
+Sitemap: https://concretosmiracle.com/sitemap.xml
+```
+
+---
+
+#### Tarea 6.5: Schema Markup LocalBusiness
+**Agregado JSON-LD a index.html y contact.html:**
+```json
+{
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Concretos Miracle",
+    "telephone": "+52-322-224-7200",
+    "email": "info@concretosmiracle.com",
+    "address": {
+        "streetAddress": "Agua Zarca 1050, Colonia Educación",
+        "addressLocality": "Puerto Vallarta",
+        "postalCode": "48338"
+    }
+}
+```
+
+---
+
+#### Tarea 6.7: Comentarios HTTrack Residuales
+**Eliminados comentarios al final de:**
+```html
+<!-- Mirrored from html.webtend.net/2024/limestone/... by HTTrack Website Copier/3.x -->
+```
+
+**Archivos:** index.html, about.html
+
+---
+
+#### Tarea 6.8: IDs Duplicados
+**Problema:** Dos elementos con `id="collapseOne"` en cada archivo
+**Solución:** Renombrado segundo accordion a `id="collapseFour"`
+
+**Archivos:** index.html, about.html
+
+---
+
+#### Tarea 6.9: HTML Mal Anidado en Banners
+**Problema:** `<section>` anidado incorrectamente dentro del banner
+**Solución:** Eliminado section innecesario, corregido cierre de tags
+
+**Archivos:** about.html, contact.html
+
+---
+
+#### Tarea 6.10: Estructura HTML Rota
+**about.html:** `</div>` cerrado prematuramente en línea 630
+**services.html:** `</ul>` huérfano sin lista abierta
+
+---
+
+### Resumen Sprint 6
+
+| Métrica | Valor |
+|---------|-------|
+| Archivos nuevos creados | 2 (robots.txt, sitemap.xml) |
+| Meta tags agregados | 30+ |
+| Schema markup implementado | 2 archivos |
+| Errores HTML corregidos | 6 |
+| Estado | COMPLETADO |
 
 ---
 
@@ -780,6 +909,8 @@ assets/images/about/about-6.png
 | 12-Dic-2025 | 4 | Completado | 6/6 tareas completadas - Redes sociales, ALT, aria-labels, labels |
 | 12-Dic-2025 | 5 | Inicio | Sprint 5 iniciado - Optimización y limpieza |
 | 12-Dic-2025 | 5 | Completado | 4/4 tareas completadas - Favicon, lazy loading, footer |
+| 05-Ene-2026 | 6 | Inicio | Sprint 6 iniciado - SEO Avanzado y Correcciones Finales |
+| 05-Ene-2026 | 6 | Completado | 10/10 tareas completadas - OG tags, Schema, sitemap, robots.txt, HTML fixes |
 
 ---
 

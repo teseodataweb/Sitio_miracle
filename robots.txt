@@ -1,0 +1,27 @@
+# robots.txt para Concretos Miracle
+# https://concretosmiracle.com/
+
+User-agent: *
+Allow: /
+
+# Archivos principales
+Allow: /index.html
+Allow: /about.html
+Allow: /services.html
+Allow: /projects.html
+Allow: /blog.html
+Allow: /contact.html
+
+# Permitir assets CSS y JS para renderizado
+Allow: /assets/css/
+Allow: /assets/js/
+Allow: /assets/images/
+
+# Bloquear archivos de desarrollo y PHP
+Disallow: /assets/php/
+Disallow: /dist/
+Disallow: /.git/
+Disallow: /.claude/
+
+# Sitemap
+Sitemap: https://concretosmiracle.com/sitemap.xml
