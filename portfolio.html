@@ -12,28 +12,28 @@
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="description" content="Preguntas frecuentes sobre concreto premezclado en Concretos Miracle. Resuelve tus dudas sobre tipos de concreto, entregas, cotizaciones y servicios.">
-    <meta name="keywords" content="preguntas frecuentes concreto, FAQ concreto premezclado, dudas concreto, Puerto Vallarta, Concretos Miracle">
+    <meta name="description" content="Portafolio de obras y proyectos de Concretos Miracle. Galeria de trabajos realizados en construccion residencial, comercial e industrial en Puerto Vallarta y Bahia de Banderas.">
+    <meta name="keywords" content="portafolio concreto, galeria proyectos, obras concreto premezclado, Puerto Vallarta, Concretos Miracle, construccion">
     <meta name="author" content="Concretos Miracle">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://concretosmiracle.com/faqs.html">
-    <meta property="og:title" content="Concretos Miracle | Preguntas Frecuentes">
-    <meta property="og:description" content="Resuelve tus dudas sobre concreto premezclado, tipos de concreto, entregas y cotizaciones.">
+    <meta property="og:url" content="https://concretosmiracle.com/portfolio.html">
+    <meta property="og:title" content="Concretos Miracle | Portafolio de Obras">
+    <meta property="og:description" content="Galeria de proyectos y obras realizadas con concreto premezclado de calidad.">
     <meta property="og:image" content="https://concretosmiracle.com/assets/images/logos/logo-miracle-new.png">
     <meta property="og:locale" content="es_MX">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Concretos Miracle | Preguntas Frecuentes">
-    <meta name="twitter:description" content="Resuelve tus dudas sobre concreto premezclado, tipos de concreto, entregas y cotizaciones.">
+    <meta name="twitter:title" content="Concretos Miracle | Portafolio">
+    <meta name="twitter:description" content="Galeria de proyectos y obras realizadas con concreto premezclado de calidad.">
     <meta name="twitter:image" content="https://concretosmiracle.com/assets/images/logos/logo-miracle-new.png">
 
     <!-- Title -->
-    <title>Concretos Miracle | Somos Tu Mejor Opcion | Preguntas Frecuentes</title>
+    <title>Concretos Miracle | Somos Tu Mejor Opcion | Portafolio</title>
     <!-- Favicon Icon -->
     <link rel="shortcut icon" href="assets/images/logos/favicon_miracle.png" type="image/x-icon">
     <!-- Google Fonts -->
@@ -55,6 +55,105 @@
     <link rel="stylesheet" href="assets/css/slick.min.css">
     <!-- Main Style -->
     <link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+        .portfolio-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+        .portfolio-filter button {
+            background: transparent;
+            border: 2px solid #ddd;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .portfolio-filter button:hover,
+        .portfolio-filter button.active {
+            background: #F6A71C;
+            border-color: #F6A71C;
+            color: #fff;
+        }
+        .portfolio-item {
+            margin-bottom: 30px;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        .portfolio-item .image {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        .portfolio-item .image img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .portfolio-item:hover .image img {
+            transform: scale(1.1);
+        }
+        .portfolio-item .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .portfolio-item:hover .overlay {
+            opacity: 1;
+        }
+        .portfolio-item .overlay h5 {
+            color: #fff;
+            margin-bottom: 10px;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+        .portfolio-item:hover .overlay h5 {
+            transform: translateY(0);
+        }
+        .portfolio-item .overlay span {
+            color: #F6A71C;
+            font-size: 14px;
+            transform: translateY(20px);
+            transition: transform 0.3s ease 0.1s;
+        }
+        .portfolio-item:hover .overlay span {
+            transform: translateY(0);
+        }
+        .portfolio-item .overlay .zoom-btn {
+            width: 50px;
+            height: 50px;
+            background: #F6A71C;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            margin-top: 15px;
+            transform: scale(0);
+            transition: transform 0.3s ease 0.2s;
+        }
+        .portfolio-item:hover .overlay .zoom-btn {
+            transform: scale(1);
+        }
+        .portfolio-item .overlay .zoom-btn:hover {
+            background: #fff;
+            color: #F6A71C;
+        }
+    </style>
 
 </head>
 <body>
@@ -133,7 +232,7 @@
                                         <li><a href="services.html">Productos</a></li>
                                         <li><a href="projects.html">Proyectos</a></li>
                                         <li><a href="blog.html">Cotizaciones</a></li>
-                                        <li><a href="portfolio.html">Portafolio</a></li>
+                                        <li class="current"><a href="portfolio.html">Portafolio</a></li>
                                     </ul>
                                 </div>
 
@@ -204,11 +303,11 @@
         <section class="page-banner-area overlay py-170 rpy-120 rel z-1 bgs-cover text-center" style="background-image: url(assets/images/background/banner-two.jpg);">
             <div class="container">
                 <div class="banner-inner pt-70 rpt-50 text-white">
-                    <h2 class="page-title" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">Preguntas Frecuentes</h2>
+                    <h2 class="page-title" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">Portafolio</h2>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1500" data-aos-offset="50">
                             <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
-                            <li class="breadcrumb-item active">Preguntas Frecuentes</li>
+                            <li class="breadcrumb-item active">Portafolio</li>
                         </ol>
                     </nav>
                 </div>
@@ -221,117 +320,170 @@
         <!-- Page Banner End -->
 
 
-        <!-- FAQs Page Area Start -->
-        <section class="faq-page-area pt-130 rpt-100 pb-100 rpb-70 rel z-2">
+        <!-- Portfolio Area Start -->
+        <section class="portfolio-area pt-130 rpt-100 pb-100 rpb-70 rel z-1">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-xl-12">
-                        <div class="section-title text-center mb-55" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
-                            <span class="sub-title mb-10">Concretos Miracle</span>
-                            <h2>Resuelve tus dudas sobre concreto premezclado</h2>
+                    <div class="col-xl-8">
+                        <div class="section-title text-center mb-50" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
+                            <span class="sub-title mb-10">Nuestros Trabajos</span>
+                            <h2>Galeria de proyectos realizados</h2>
+                            <p>Conoce algunos de los proyectos donde hemos entregado concreto premezclado de la mas alta calidad en Puerto Vallarta y la Bahia de Banderas.</p>
                         </div>
                     </div>
                 </div>
-                <div class="row no-gap justify-content-center">
-                    <div class="col-xl-10">
-                        <div class="faq-page-conntent">
-                            <div class="accordion" id="faq-accordion" data-aos="fade-up" data-aos-delay="50" data-aos-duration="1500" data-aos-offset="50">
-                                <div class="accordion-item">
-                                    <h5 class="accordion-header">
-                                        <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
-                                           ¿Qué tipos de concreto ofrecen?
-                                        </button>
-                                    </h5>
-                                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#faq-accordion">
-                                        <div class="accordion-body">
-                                            <p>Ofrecemos una amplia variedad de concretos premezclados: Concreto Convencional, Concreto Estructural Clase 1 y Clase 2, Concreto MR (Módulo de Ruptura) y Concreto Arquitectónico. Cada tipo está diseñado para necesidades específicas de construcción.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h5 class="accordion-header">
-                                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
-                                            ¿Cuál es el tiempo de entrega del concreto?
-                                        </button>
-                                    </h5>
-                                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faq-accordion">
-                                        <div class="accordion-body">
-                                            <p>Coordinamos la entrega según las necesidades de tu proyecto. Generalmente podemos programar entregas en un plazo de 24 a 48 horas después de confirmar tu pedido. Para proyectos urgentes, contáctanos directamente para evaluar disponibilidad.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h5 class="accordion-header">
-                                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseThree">
-                                            ¿Cómo puedo solicitar una cotización?
-                                        </button>
-                                    </h5>
-                                    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faq-accordion">
-                                        <div class="accordion-body">
-                                            <p>Puedes solicitar una cotización de varias formas: a través de nuestro formulario en la página de <a href="contact.html">Contacto</a>, llamando al +52 (322) 224 7200, o enviando un correo a info@concretosmiracle.com. Todas nuestras cotizaciones son gratuitas y sin compromiso.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h5 class="accordion-header">
-                                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseFour">
-                                            ¿Qué información necesitan para cotizar?
-                                        </button>
-                                    </h5>
-                                    <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#faq-accordion">
-                                        <div class="accordion-body">
-                                            <p>Para darte una cotización precisa necesitamos: tipo de concreto requerido (o descripción del proyecto), cantidad estimada en metros cúbicos, ubicación de la obra y fecha aproximada de vaciado. Si no estás seguro del tipo de concreto, nuestro equipo técnico puede asesorarte.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h5 class="accordion-header">
-                                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseFive">
-                                            ¿Ofrecen asesoría técnica?
-                                        </button>
-                                    </h5>
-                                    <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#faq-accordion">
-                                        <div class="accordion-body">
-                                            <p>Sí, contamos con un equipo de asesores técnicos que pueden ayudarte a elegir el tipo de concreto adecuado para tu proyecto. Esta asesoría está incluida en nuestros servicios sin costo adicional.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h5 class="accordion-header">
-                                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseSix">
-                                            ¿Cuál es la cantidad mínima de pedido?
-                                        </button>
-                                    </h5>
-                                    <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#faq-accordion">
-                                        <div class="accordion-body">
-                                            <p>La cantidad mínima de pedido depende del tipo de concreto y la ubicación del proyecto. Contáctanos para conocer los detalles específicos para tu caso. Atendemos desde proyectos pequeños hasta grandes obras.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h5 class="accordion-header">
-                                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseSeven">
-                                            ¿Qué zonas cubren en Puerto Vallarta?
-                                        </button>
-                                    </h5>
-                                    <div id="collapseSeven" class="accordion-collapse collapse" data-bs-parent="#faq-accordion">
-                                        <div class="accordion-body">
-                                            <p>Cubrimos toda la zona de Puerto Vallarta y la Bahía de Banderas, incluyendo Nuevo Vallarta, Bucerías, Sayulita y zonas aledañas. Para ubicaciones fuera de estas áreas, contáctanos para evaluar la factibilidad de entrega.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h5 class="accordion-header">
-                                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseEight">
-                                            ¿El concreto cuenta con certificación de calidad?
-                                        </button>
-                                    </h5>
-                                    <div id="collapseEight" class="accordion-collapse collapse" data-bs-parent="#faq-accordion">
-                                        <div class="accordion-body">
-                                            <p>Sí, todo nuestro concreto premezclado cumple con las normas mexicanas de calidad. Realizamos pruebas de resistencia y podemos proporcionar certificados de calidad para tu proyecto cuando sea requerido.</p>
-                                        </div>
-                                    </div>
-                                </div>
+
+                <!-- Portfolio Filter -->
+                <div class="portfolio-filter" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500" data-aos-offset="50">
+                    <button class="active" data-filter="*">Todos</button>
+                    <button data-filter=".residencial">Residencial</button>
+                    <button data-filter=".comercial">Comercial</button>
+                    <button data-filter=".industrial">Industrial</button>
+                    <button data-filter=".infraestructura">Infraestructura</button>
+                </div>
+
+                <!-- Portfolio Grid -->
+                <div class="row portfolio-grid">
+                    <!-- Item 1 -->
+                    <div class="col-lg-4 col-md-6 portfolio-item residencial" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
+                        <div class="image">
+                            <img loading="lazy" src="assets/images/projects/project-two1.jpg" alt="Proyecto Residencial">
+                            <div class="overlay">
+                                <h5>Casa Residencial</h5>
+                                <span>Nuevo Vallarta</span>
+                                <a href="assets/images/projects/project-two1.jpg" class="zoom-btn popup-image"><i class="fas fa-search-plus"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="col-lg-4 col-md-6 portfolio-item comercial" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500" data-aos-offset="50">
+                        <div class="image">
+                            <img loading="lazy" src="assets/images/projects/project-two2.jpg" alt="Proyecto Comercial">
+                            <div class="overlay">
+                                <h5>Plaza Comercial</h5>
+                                <span>Puerto Vallarta</span>
+                                <a href="assets/images/projects/project-two2.jpg" class="zoom-btn popup-image"><i class="fas fa-search-plus"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="col-lg-4 col-md-6 portfolio-item industrial" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1500" data-aos-offset="50">
+                        <div class="image">
+                            <img loading="lazy" src="assets/images/projects/project-two3.jpg" alt="Proyecto Industrial">
+                            <div class="overlay">
+                                <h5>Nave Industrial</h5>
+                                <span>Bahia de Banderas</span>
+                                <a href="assets/images/projects/project-two3.jpg" class="zoom-btn popup-image"><i class="fas fa-search-plus"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="col-lg-4 col-md-6 portfolio-item infraestructura" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
+                        <div class="image">
+                            <img loading="lazy" src="assets/images/projects/project-two4.jpg" alt="Infraestructura">
+                            <div class="overlay">
+                                <h5>Vialidad Principal</h5>
+                                <span>Puerto Vallarta</span>
+                                <a href="assets/images/projects/project-two4.jpg" class="zoom-btn popup-image"><i class="fas fa-search-plus"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 5 -->
+                    <div class="col-lg-4 col-md-6 portfolio-item residencial" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500" data-aos-offset="50">
+                        <div class="image">
+                            <img loading="lazy" src="assets/images/footer/gallery1.jpg" alt="Proyecto Residencial">
+                            <div class="overlay">
+                                <h5>Condominio</h5>
+                                <span>Marina Vallarta</span>
+                                <a href="assets/images/footer/gallery1.jpg" class="zoom-btn popup-image"><i class="fas fa-search-plus"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 6 -->
+                    <div class="col-lg-4 col-md-6 portfolio-item comercial" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1500" data-aos-offset="50">
+                        <div class="image">
+                            <img loading="lazy" src="assets/images/footer/gallery2.jpg" alt="Proyecto Comercial">
+                            <div class="overlay">
+                                <h5>Centro Comercial</h5>
+                                <span>Fluvial Vallarta</span>
+                                <a href="assets/images/footer/gallery2.jpg" class="zoom-btn popup-image"><i class="fas fa-search-plus"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 7 -->
+                    <div class="col-lg-4 col-md-6 portfolio-item residencial" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
+                        <div class="image">
+                            <img loading="lazy" src="assets/images/footer/gallery3.jpg" alt="Proyecto Residencial">
+                            <div class="overlay">
+                                <h5>Fraccionamiento</h5>
+                                <span>Bucerias</span>
+                                <a href="assets/images/footer/gallery3.jpg" class="zoom-btn popup-image"><i class="fas fa-search-plus"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 8 -->
+                    <div class="col-lg-4 col-md-6 portfolio-item industrial" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500" data-aos-offset="50">
+                        <div class="image">
+                            <img loading="lazy" src="assets/images/footer/gallery4.jpg" alt="Proyecto Industrial">
+                            <div class="overlay">
+                                <h5>Piso Industrial</h5>
+                                <span>Ixtapa</span>
+                                <a href="assets/images/footer/gallery4.jpg" class="zoom-btn popup-image"><i class="fas fa-search-plus"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 9 -->
+                    <div class="col-lg-4 col-md-6 portfolio-item infraestructura" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1500" data-aos-offset="50">
+                        <div class="image">
+                            <img loading="lazy" src="assets/images/footer/gallery5.jpg" alt="Infraestructura">
+                            <div class="overlay">
+                                <h5>Obra Publica</h5>
+                                <span>Sayulita</span>
+                                <a href="assets/images/footer/gallery5.jpg" class="zoom-btn popup-image"><i class="fas fa-search-plus"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 10 -->
+                    <div class="col-lg-4 col-md-6 portfolio-item comercial" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
+                        <div class="image">
+                            <img loading="lazy" src="assets/images/footer/gallery6.jpg" alt="Proyecto Comercial">
+                            <div class="overlay">
+                                <h5>Hotel Boutique</h5>
+                                <span>Zona Romantica</span>
+                                <a href="assets/images/footer/gallery6.jpg" class="zoom-btn popup-image"><i class="fas fa-search-plus"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 11 -->
+                    <div class="col-lg-4 col-md-6 portfolio-item residencial" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500" data-aos-offset="50">
+                        <div class="image">
+                            <img loading="lazy" src="assets/images/projects/project-three1.jpg" alt="Proyecto Residencial">
+                            <div class="overlay">
+                                <h5>Villa de Lujo</h5>
+                                <span>Punta Mita</span>
+                                <a href="assets/images/projects/project-three1.jpg" class="zoom-btn popup-image"><i class="fas fa-search-plus"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 12 -->
+                    <div class="col-lg-4 col-md-6 portfolio-item infraestructura" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1500" data-aos-offset="50">
+                        <div class="image">
+                            <img loading="lazy" src="assets/images/projects/project-three2.jpg" alt="Infraestructura">
+                            <div class="overlay">
+                                <h5>Puente Vehicular</h5>
+                                <span>Las Juntas</span>
+                                <a href="assets/images/projects/project-three2.jpg" class="zoom-btn popup-image"><i class="fas fa-search-plus"></i></a>
                             </div>
                         </div>
                     </div>
@@ -342,7 +494,46 @@
                <span></span><span></span>
             </div>
         </section>
-        <!-- FAQs Page Area End -->
+        <!-- Portfolio Area End -->
+
+
+        <!-- Statistics Section -->
+        <section class="counter-area bgc-gray pt-80 pb-50">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-3 col-lg-4 col-sm-6">
+                        <div class="counter-item style-two counter-text-wrap" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
+                            <i class="flaticon-trophy"></i>
+                            <span class="count-text plus" data-speed="3000" data-stop="15">0</span>
+                            <h6 class="counter-title">Anos de experiencia</h6>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-sm-6">
+                        <div class="counter-item style-two counter-text-wrap" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500" data-aos-offset="50">
+                            <i class="flaticon-sketch"></i>
+                            <span class="count-text plus" data-speed="3000" data-stop="500">0</span>
+                            <h6 class="counter-title">Proyectos completados</h6>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-sm-6">
+                        <div class="counter-item style-two counter-text-wrap" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1500" data-aos-offset="50">
+                            <i class="flaticon-excavator"></i>
+                            <span class="count-text plus" data-speed="3000" data-stop="100">0</span>
+                            <h6 class="counter-title">Miles de m3 entregados</h6>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-sm-6">
+                        <div class="counter-item style-two counter-text-wrap" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500" data-aos-offset="50">
+                            <i class="flaticon-worker"></i>
+                            <span class="count-text plus" data-speed="3000" data-stop="98">0</span>
+                            <h6 class="counter-title">% Clientes satisfechos</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Statistics Section End -->
+
 
         <!-- CTA Area start -->
         <section class="cta-counter-area mx-xl-5 pt-80 pb-50 bgs-cover overlay" style="background-image: url(assets/images/background/cta7.jpg);">
@@ -351,12 +542,12 @@
                     <div class="col-xl-6 col-lg-8">
                         <div class="section-title text-white mb-15 rmb-45" data-aos="fade-left" data-aos-duration="1500" data-aos-offset="50">
                             <span class="sub-title mb-10">Concretos Miracle</span>
-                            <h2>¿Tienes más preguntas?</h2>
-                            <p>Nuestro equipo está listo para resolver todas tus dudas y ayudarte con tu proyecto.</p>
+                            <h2>¿Tienes un proyecto en mente?</h2>
+                            <p>Cotiza sin compromiso y forma parte de nuestra galeria de proyectos exitosos.</p>
                         </div>
                     </div>
                     <div class="col-lg-4 mb-25 text-lg-end" data-aos="fade-right" data-aos-duration="1500" data-aos-offset="50">
-                       <a href="contact.html" class="theme-btn">Contáctanos<i class="far fa-angle-double-right"></i></a>
+                       <a href="contact.html" class="theme-btn">Solicitar cotizacion<i class="far fa-angle-double-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -397,14 +588,14 @@
                         </div>
                         <div class="col-xl-2 col-lg-3 col-sm-6">
                             <div class="footer-widget footer-links" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500" data-aos-offset="50">
-                                <h5 class="footer-title">Enlaces rápidos</h5>
+                                <h5 class="footer-title">Enlaces rapidos</h5>
                                 <ul>
                                     <li><a href="index.html">Inicio</a></li>
                                     <li><a href="about.html">Nosotros</a></li>
                                     <li><a href="services.html">Productos</a></li>
                                     <li><a href="projects.html">Proyectos</a></li>
                                     <li><a href="blog.html">Cotizaciones</a></li>
-                                    <li><a href="contact.html">Contacto</a></li>
+                                    <li><a href="portfolio.html">Portafolio</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -412,37 +603,37 @@
                             <div class="footer-widget newsletter-widget" data-aos="fade-up" data-aos-delay="150" data-aos-duration="1500" data-aos-offset="50">
                                 <form class="newsletter-form" action="assets/php/form-process.php" method="post">
                                     <input type="hidden" name="form_type" value="newsletter">
-                                    <input type="email" name="email" placeholder="Correo electrónico" required>
+                                    <input type="email" name="email" placeholder="Correo electronico" required>
                                     <button type="submit"><i class="far fa-angle-double-right"></i></button>
                                 </form>
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-4 col-sm-6">
                             <div class="footer-widget gallery-widget" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1500" data-aos-offset="50">
-                                <h5 class="footer-title">Galería</h5>
+                                <h5 class="footer-title">Galeria</h5>
                                 <div class="gallery">
                                     <a href="assets/images/footer/gallery1.jpg">
-                                        <img loading="lazy" src="assets/images/footer/gallery1.jpg" alt="Galería de proyectos">
+                                        <img loading="lazy" src="assets/images/footer/gallery1.jpg" alt="Galeria de proyectos">
                                         <i class="far fa-plus"></i>
                                     </a>
                                     <a href="assets/images/footer/gallery2.jpg">
-                                        <img loading="lazy" src="assets/images/footer/gallery2.jpg" alt="Galería de proyectos">
+                                        <img loading="lazy" src="assets/images/footer/gallery2.jpg" alt="Galeria de proyectos">
                                         <i class="far fa-plus"></i>
                                     </a>
                                     <a href="assets/images/footer/gallery3.jpg">
-                                        <img loading="lazy" src="assets/images/footer/gallery3.jpg" alt="Galería de proyectos">
+                                        <img loading="lazy" src="assets/images/footer/gallery3.jpg" alt="Galeria de proyectos">
                                         <i class="far fa-plus"></i>
                                     </a>
                                     <a href="assets/images/footer/gallery4.jpg">
-                                        <img loading="lazy" src="assets/images/footer/gallery4.jpg" alt="Galería de proyectos">
+                                        <img loading="lazy" src="assets/images/footer/gallery4.jpg" alt="Galeria de proyectos">
                                         <i class="far fa-plus"></i>
                                     </a>
                                     <a href="assets/images/footer/gallery5.jpg">
-                                        <img loading="lazy" src="assets/images/footer/gallery5.jpg" alt="Galería de proyectos">
+                                        <img loading="lazy" src="assets/images/footer/gallery5.jpg" alt="Galeria de proyectos">
                                         <i class="far fa-plus"></i>
                                     </a>
                                     <a href="assets/images/footer/gallery6.jpg">
-                                        <img loading="lazy" src="assets/images/footer/gallery6.jpg" alt="Galería de proyectos">
+                                        <img loading="lazy" src="assets/images/footer/gallery6.jpg" alt="Galeria de proyectos">
                                         <i class="far fa-plus"></i>
                                     </a>
                                 </div>
@@ -506,6 +697,35 @@
     <script src="assets/js/aos.js"></script>
     <!-- Custom script -->
     <script src="assets/js/script.js"></script>
+
+    <!-- Portfolio Filter Script -->
+    <script>
+        $(document).ready(function() {
+            // Initialize Isotope
+            var $grid = $('.portfolio-grid').isotope({
+                itemSelector: '.portfolio-item',
+                layoutMode: 'fitRows'
+            });
+
+            // Filter items on button click
+            $('.portfolio-filter button').on('click', function() {
+                var filterValue = $(this).attr('data-filter');
+                $grid.isotope({ filter: filterValue });
+
+                // Update active class
+                $('.portfolio-filter button').removeClass('active');
+                $(this).addClass('active');
+            });
+
+            // Initialize Magnific Popup for gallery
+            $('.popup-image').magnificPopup({
+                type: 'image',
+                gallery: {
+                    enabled: true
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>

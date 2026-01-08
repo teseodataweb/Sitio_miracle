@@ -34,12 +34,12 @@
     <meta name="twitter:image" content="https://concretosmiracle.com/assets/images/logos/logo-miracle-new.png">
 
     <!-- Title -->
-    <title>Concretos Miracle | Somos Tu Mejor Opción | Inicio</title>
+    <title>Concretos Miracle | Somos Tu Mejor Opcion | Inicio</title>
     <!-- Favicon Icon -->
     <link rel="shortcut icon" href="assets/images/logos/favicon_miracle.png" type="image/x-icon">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500&amp;family=Poppins:wght@400;500;600&amp;display=swap" rel="stylesheet">
-    
+
     <!-- Flaticon -->
     <link rel="stylesheet" href="assets/css/flaticon.min.css">
     <!-- Font Awesome -->
@@ -72,7 +72,7 @@
         "email": "info@concretosmiracle.com",
         "address": {
             "@type": "PostalAddress",
-            "streetAddress": "Agua Zarca 1050, Colonia Educación",
+            "streetAddress": "Agua Zarca 1050, Colonia Educacion",
             "addressLocality": "Puerto Vallarta",
             "addressRegion": "Jalisco",
             "postalCode": "48338",
@@ -114,6 +114,120 @@
     }
     </script>
 
+    <!-- Custom Styles for Index -->
+    <style>
+        /* Service Cards */
+        .service-card {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+            text-align: center;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        .service-card .icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #F6A71C 0%, #e8960a 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+        }
+        .service-card .icon i {
+            font-size: 35px;
+            color: #fff;
+        }
+        .service-card h5 {
+            margin-bottom: 15px;
+            color: #1a1a1a;
+        }
+        .service-card p {
+            color: #666;
+            margin-bottom: 0;
+        }
+        /* Product Cards */
+        .product-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+        .product-card .image {
+            height: 200px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        .product-card .image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .product-card:hover .image img {
+            transform: scale(1.1);
+        }
+        .product-card .content {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .product-card h5 {
+            margin-bottom: 10px;
+        }
+        .product-card h5 a {
+            color: #1a1a1a;
+        }
+        .product-card h5 a:hover {
+            color: #F6A71C;
+        }
+        .product-card p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+        .product-card .read-more {
+            margin-top: auto;
+        }
+        /* Testimonial Slider */
+        .testimonials-slider .slick-dots {
+            bottom: -40px;
+        }
+        .testimonials-slider .slick-dots li button:before {
+            font-size: 12px;
+            color: #F6A71C;
+        }
+        .testimonials-slider .slick-dots li.slick-active button:before {
+            color: #F6A71C;
+        }
+        .testimonials-slider .testi-text {
+            font-size: 1.15rem;
+            line-height: 1.7;
+        }
+        .testimonials-slider .testi-footer h6 {
+            font-size: 1.1rem;
+        }
+        .testimonials-slider .testi-footer .designation {
+            font-size: 0.95rem;
+        }
+    </style>
+
 </head>
 <body>
     <div class="page-wrapper">
@@ -130,7 +244,7 @@
                        <div class="row align-items-center">
                            <div class="col-xl-4 col-lg-5">
                                <div class="top-left text-center text-lg-start">
-                                   CONCRETOS MIRACLE 
+                                   CONCRETOS MIRACLE
                                </div>
                            </div>
                            <div class="col-xl-8 col-lg-7">
@@ -156,7 +270,7 @@
                    <span></span><span></span>
                 </div>
            </div>
-           
+
             <!--Header-Upper-->
             <div class="header-upper">
                 <div class="container container-1620 clearfix">
@@ -175,7 +289,7 @@
                                             <img src="assets/images/logos/logo-miracle-new.png" alt="Logo Concretos Miracle" title="Concretos Miracle">
                                        </a>
                                    </div>
-                                   
+
                                     <!-- Toggle Button -->
                                     <button type="button" class="navbar-toggle" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
                                         <span class="icon-bar"></span>
@@ -186,30 +300,22 @@
 
                                 <div class="navbar-collapse collapse clearfix">
                                     <ul class="navigation clearfix">
-                                        <li><a href="index.html">Inicio</a></li>
+                                        <li class="current"><a href="index.html">Inicio</a></li>
                                         <li><a href="about.html">Nosotros</a></li>
                                         <li><a href="services.html">Productos</a></li>
                                         <li><a href="projects.html">Proyectos</a></li>
                                         <li><a href="blog.html">Cotizaciones</a></li>
-                                        <li><a href="contact.html">Contacto</a></li>
+                                        <li><a href="portfolio.html">Portafolio</a></li>
                                     </ul>
                                 </div>
 
                             </nav>
                             <!-- Main Menu End-->
                         </div>
-                        
-                        <!-- Nav Search -->
-                        <!--div class="nav-search py-10">
-                            <button class="far fa-search"></button>
-                            <form action="#" class="hide">
-                                <input type="text" placeholder="Search" class="searchbox" required="">
-                                <button type="submit" class="searchbutton far fa-search"></button>
-                            </form>
-                        </div-->
+
                         <!-- Menu Button -->
                         <div class="menu-btns ms-lg-auto">
-                            <a href="contact.html" class="theme-btn me-4">Contáctanos<i class="far fa-angle-double-right"></i></a>
+                            <a href="contact.html" class="theme-btn me-4">Contactanos<i class="far fa-angle-double-right"></i></a>
                             <!-- menu sidbar -->
                             <div class="menu-sidebar">
                                 <button class="bg-transparent"></button>
@@ -224,17 +330,17 @@
             </div>
             <!--End Header Upper-->
         </header>
-       
+
 
         <!--Form Back Drop-->
         <div class="form-back-drop"></div>
-        
+
         <!-- Hidden Sidebar -->
         <section class="hidden-bar">
             <div class="inner-box text-center">
                 <div class="cross-icon"><span class="fa fa-times"></span></div>
                 <div class="title">
-                    <h4>Escribenos es tu momento</h4>
+                    <h4>Escribenos, es tu momento</h4>
                 </div>
 
                 <!--Appointment Form-->
@@ -245,13 +351,13 @@
                             <input type="text" name="name" value="" placeholder="Nombre" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" name="email" value="" placeholder="Correo electrónico" required>
+                            <input type="email" name="email" value="" placeholder="Correo electronico" required>
                         </div>
                         <div class="form-group">
                             <textarea name="message" placeholder="Mensaje" rows="5"></textarea>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="theme-btn style-two">Contáctanos</button>
+                            <button type="submit" class="theme-btn style-two">Contactanos</button>
                         </div>
                     </form>
                 </div>
@@ -265,9 +371,9 @@
             </div>
         </section>
         <!--End Hidden Sidebar -->
-       
-        
-        <!-- Hero Video Section Start -->
+
+
+        <!-- ==================== SECCION 1: HERO VIDEO ==================== -->
         <section class="hero-video-area rel z-1">
             <div class="hero-video-wrapper">
                 <!-- Video Background -->
@@ -279,8 +385,8 @@
                 <!-- Contenido -->
                 <div class="container">
                     <div class="hero-video-content" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
-                        <h1>Líderes En Concreto Premezclado En Puerto Vallarta</h1>
-                        <p>Solidez, calidad y servicio profesional para tus proyectos de construcción.</p>
+                        <h1>Lideres en Concreto Premezclado en Puerto Vallarta</h1>
+                        <p>Solidez, calidad y servicio profesional para tus proyectos de construccion.</p>
                         <a href="contact.html#formulario-cotizacion" class="theme-btn mt-20">Cotiza gratis <i class="far fa-angle-double-right"></i></a>
                     </div>
                 </div>
@@ -290,56 +396,89 @@
                 </div>
             </div>
         </section>
-        <!-- Hero Video Section End -->
-        
-        
-       <!-- About Us Area start -->
-        <section class="about-area pt-75 rpt-45 rel z-1">
+        <!-- Hero End -->
+
+
+        <!-- ==================== SECCION 2: ESTADISTICAS ==================== -->
+        <section class="counter-area bgc-primary py-60">
             <div class="container">
-                <div class="row gap-90 align-items-center">
-                    <div class="col-xl-6">
-                        <div class="about-image mt-55" data-aos="fade-left" data-aos-duration="1500" data-aos-offset="50">
-                            <img loading="lazy" src="assets/images/about/about_nueva.png" alt="Concretos Miracle - Nosotros">
-                            <!--div class="circle-progress-wrap">
-                                <div class="progress-content">
-                                    <h6>Project Success Rate</h6>
-                                    <span class="counting">0</span>
-                                </div>
-                            </div!-->
+                <div class="row justify-content-center text-center">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="counter-item counter-text-wrap" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
+                            <span class="count-text plus" data-speed="3000" data-stop="15">0</span>
+                            <h6 class="counter-title text-white">Anos de experiencia</h6>
                         </div>
                     </div>
-                    <div class="col-xl-6">
-                        <div class="about-content mt-55" data-aos="fade-right" data-aos-duration="1500" data-aos-offset="50">
-                            <div class="section-title mb-25">
-                                <span class="sub-title mb-10">Concretos Miracle</span>
-                                <h3>Concreto premezclado de alta calidad obras que exigen resultados reales</h3>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="counter-item counter-text-wrap" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500" data-aos-offset="50">
+                            <span class="count-text plus" data-speed="3000" data-stop="500">0</span>
+                            <h6 class="counter-title text-white">Proyectos completados</h6>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="counter-item counter-text-wrap" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1500" data-aos-offset="50">
+                            <span class="count-text k-plus" data-speed="3000" data-stop="100">0</span>
+                            <h6 class="counter-title text-white">m3 de concreto entregados</h6>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="counter-item counter-text-wrap" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500" data-aos-offset="50">
+                            <span class="count-text percent" data-speed="3000" data-stop="98">0</span>
+                            <h6 class="counter-title text-white">Clientes satisfechos</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Estadisticas End -->
+
+
+        <!-- ==================== SECCION 3: POR QUE ELEGIRNOS ==================== -->
+        <section class="services-area pt-100 pb-70 rel z-1">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6 col-lg-8">
+                        <div class="section-title text-center mb-50" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
+                            <span class="sub-title mb-10">Por que elegirnos</span>
+                            <h2>Calidad y confianza en cada entrega</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6 mb-30" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
+                        <div class="service-card">
+                            <div class="icon">
+                                <i class="flaticon-trophy"></i>
                             </div>
-                            <p>Suministro confiable, asesoría técnica profesional y un equipo especializado que acompaña cada etapa de tu obra.</p>
-                            <div class="row gap-45 pt-15">
-                                <!--div class="col-sm-6">
-                                    <div class="service-item-two">
-                                        <div class="icon">
-                                            <i class="flaticon-brickwall"></i>
-                                        </div>
-                                        <h6><a href="service-details.html">Awards Winning Construction Agency</a></h6>
-                                        <p>Ut enim ad minima veniam nostrum ollam laboriosam niseu aliquide</p>
-                                    </div>
-                                </div!-->
-                                <!--div class="col-sm-6">
-                                    <div class="service-item-two">
-                                        <div class="icon">
-                                            <i class="flaticon-helmet"></i>
-                                        </div>
-                                        <h6><a href="service-details.html">Modern Technology & Expert Engineering</a></h6>
-                                        <p>To take trivial example which of us undertakes laborious physical</p>
-                                    </div>
-                                </div!-->
+                            <h5>Calidad Certificada</h5>
+                            <p>Concreto que cumple con los mas altos estandares de resistencia y durabilidad.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 mb-30" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500" data-aos-offset="50">
+                        <div class="service-card">
+                            <div class="icon">
+                                <i class="flaticon-concrete-mixer"></i>
                             </div>
-                            <div class="btn-and-video">
-                                <a href="contact.html#formulario-cotizacion" class="theme-btn mt-10 me-4">Solicitar cotización <i class="far fa-angle-double-right"></i></a>
-                                <a href="services.html" class="theme-btn mt-10 me-4">Ver productos <i class="far fa-angle-double-right"></i></a>
-                                <!--a href="https://www.youtube.com/watch?v=9Y7ma241N8k" class="mfp-iframe video-play-text mt-10"><i class="fas fa-play"></i> <span>Watch Video</span></a!-->
+                            <h5>Entrega Puntual</h5>
+                            <p>Cumplimos con los tiempos acordados para no retrasar tu obra.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 mb-30" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1500" data-aos-offset="50">
+                        <div class="service-card">
+                            <div class="icon">
+                                <i class="flaticon-customer-support"></i>
                             </div>
+                            <h5>Asesoria Tecnica</h5>
+                            <p>Equipo especializado que te guia en cada etapa de tu proyecto.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 mb-30" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500" data-aos-offset="50">
+                        <div class="service-card">
+                            <div class="icon">
+                                <i class="flaticon-favorites"></i>
+                            </div>
+                            <h5>Precios Competitivos</h5>
+                            <p>La mejor relacion calidad-precio del mercado en Puerto Vallarta.</p>
                         </div>
                     </div>
                 </div>
@@ -349,15 +488,88 @@
                <span></span><span></span>
             </div>
         </section>
-        <!-- About Us Area end -->
+        <!-- Services End -->
 
-         <!-- About Us Area start -->
-        <section class="about-area-three pt-130 rpt-100 rel z-2">
+
+        <!-- ==================== SECCION 4: PRODUCTOS ==================== -->
+        <section class="products-area bgc-lighter pt-100 pb-70 rel z-1">
             <div class="container">
-                <div class="row gap-70 align-items-center">
-                    <div class="col-xl-6 col-lg-5">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6 col-lg-8">
+                        <div class="section-title text-center mb-50" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
+                            <span class="sub-title mb-10">Nuestros productos</span>
+                            <h2>Tipos de concreto premezclado</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 mb-30" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
+                        <div class="product-card">
+                            <div class="image">
+                                <img loading="lazy" src="assets/images/projects/project1.jpg" alt="Concreto Estructural">
+                            </div>
+                            <div class="content">
+                                <h5><a href="services.html#concreto-estructural">Concreto Estructural</a></h5>
+                                <p>Alta resistencia para estructuras criticas y obras demandantes.</p>
+                                <a class="read-more" href="services.html#concreto-estructural">Ver mas <i class="far fa-angle-double-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-30" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500" data-aos-offset="50">
+                        <div class="product-card">
+                            <div class="image">
+                                <img loading="lazy" src="assets/images/projects/project2.jpg" alt="Concreto Convencional">
+                            </div>
+                            <div class="content">
+                                <h5><a href="services.html#concreto-convencional">Concreto Convencional</a></h5>
+                                <p>Mezcla confiable para cimentaciones, pisos y elementos generales.</p>
+                                <a class="read-more" href="services.html#concreto-convencional">Ver mas <i class="far fa-angle-double-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-30" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1500" data-aos-offset="50">
+                        <div class="product-card">
+                            <div class="image">
+                                <img loading="lazy" src="assets/images/projects/project-two1.jpg" alt="Concreto MR">
+                            </div>
+                            <div class="content">
+                                <h5><a href="services.html#concreto-mr">Concreto MR</a></h5>
+                                <p>Ideal para pavimentos y pisos industriales con modulo de ruptura.</p>
+                                <a class="read-more" href="services.html#concreto-mr">Ver mas <i class="far fa-angle-double-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-30" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500" data-aos-offset="50">
+                        <div class="product-card">
+                            <div class="image">
+                                <img loading="lazy" src="assets/images/projects/project-two2.jpg" alt="Concreto Arquitectonico">
+                            </div>
+                            <div class="content">
+                                <h5><a href="services.html#concreto-arquitectonico">Concreto Arquitectonico</a></h5>
+                                <p>Acabado estetico para fachadas y elementos decorativos.</p>
+                                <a class="read-more" href="services.html#concreto-arquitectonico">Ver mas <i class="far fa-angle-double-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-20" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
+                    <a href="services.html" class="theme-btn">Ver todos los productos <i class="far fa-angle-double-right"></i></a>
+                </div>
+            </div>
+            <div class="bg-lines">
+               <span></span><span></span>
+               <span></span><span></span>
+            </div>
+        </section>
+        <!-- Products End -->
+
+
+        <!-- ==================== SECCION 5: ABOUT ==================== -->
+        <section class="about-area pt-100 pb-70 rel z-1">
+            <div class="container">
+                <div class="row gap-90 align-items-center">
+                    <div class="col-lg-6">
                         <div class="about-image-three rmb-55" data-aos="fade-right" data-aos-duration="1500" data-aos-offset="50">
-                            <!-- Círculo partido con dos fotos -->
                             <div class="split-circle-container" style="display: flex; gap: 6px; max-width: 500px;">
                                 <div class="split-circle-left" style="width: 50%; aspect-ratio: 1/2; border-radius: 250px 0 0 250px; overflow: hidden;">
                                     <img src="assets/images/projects/proyectos_miracle.jpg" alt="Proyecto Concretos Miracle" style="width: 200%; height: 100%; object-fit: cover; object-position: center;">
@@ -368,20 +580,23 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-6 col-lg-7">
+                    <div class="col-lg-6">
                         <div class="about-content-three" data-aos="fade-left" data-aos-duration="1500" data-aos-offset="50">
                             <div class="section-title mb-25">
-                                <!--span class="sub-title mb-10">About Company</span-->
+                                <span class="sub-title mb-10">Sobre nosotros</span>
                                 <h2>Construimos confianza en cada entrega</h2>
                             </div>
-                            <p>En Concretos Miracle ofrecemos concreto premezclado de alto rendimiento, con calidad, puntualidad y precios competitivos para tu proyecto.</p>
+                            <p>En Concretos Miracle ofrecemos concreto premezclado de alto rendimiento, con calidad, puntualidad y precios competitivos. Suministro confiable y asesoria tecnica profesional que acompana cada etapa de tu obra.</p>
                             <ul class="list-style-two pt-5 pb-20">
                                 <li><span>01.</span> Concreto certificado</li>
                                 <li><span>02.</span> Calidad garantizada</li>
                                 <li><span>03.</span> Entrega puntual</li>
                                 <li><span>04.</span> Costos competitivos</li>
                             </ul>
-                            <a href="services.html#productos-concreto" class="theme-btn">Conoce nuestros productos <i class="far fa-angle-double-right"></i></a>
+                            <div class="btn-group">
+                                <a href="about.html" class="theme-btn me-3 mb-10">Conocenos <i class="far fa-angle-double-right"></i></a>
+                                <a href="contact.html#formulario-cotizacion" class="theme-btn style-two mb-10">Solicitar cotizacion <i class="far fa-angle-double-right"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -391,215 +606,29 @@
                <span></span><span></span>
             </div>
         </section>
-        <!-- About Us Area end -->
-          <!-- FAQ Area start -->
-        <section class="faq-area py-130 rpy-100 rel z-1">
-            <div class="container">
-                <div class="row gap-150 align-items-center">
-                    <div class="col-lg-6">
-                        <div class="faq-content-part rmb-55" data-aos="fade-left" data-aos-duration="1500" data-aos-offset="50">
-                            <div class="section-title mb-15">
-                                <span class="sub-title mb-10">Concretos Miracle</span>
-                                <h2>Soluciones integrales en concreto y construcción</h2>
-                            </div>
-                            <!--p>Ut enim ad minima veniam quis nostrum exercitationem ullam corporis suscipite laboriosam, nisi ut aliquid ex ea commodi consequatur</p-->
-                            <div class="accordion pt-10" id="faq-accordion">
-                                <div class="accordion-item">
-                                    <h5 class="accordion-header">
-                                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseOne">
-                                         Innovación en materiales
-                                        </button>
-                                    </h5>
-                                    <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#faq-accordion">
-                                        <div class="accordion-body">
-                                            <p>Desarrollamos mezclas de concreto premezclado para proyectos residenciales, comerciales y de infraestructura, con materiales de calidad y técnicas de vanguardia.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h5 class="accordion-header">
-                                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseThree">
-                                             Pruebas e inspección
-                                        </button>
-                                    </h5>
-                                    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faq-accordion">
-                                        <div class="accordion-body">
-                                            <p>Contamos con equipo de análisis y laboratorio interno para asegurar que cada entrega cumpla con estándares de calidad y resistencia</p>
-                                                </div>
-                                             </div>
-                                          </div>
-                                          <div class="accordion-item">
-                                    <h5 class="accordion-header">
-                                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseFour">
-                                           Materiales de calidad
-                                        </button>
-                                    </h5>
-                                    <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#faq-accordion">
-                                        <div class="accordion-body">
-                                            <p>Trabajamos con marcas y proveedores certificados, garantizando mezclas confiables, estables y de alto rendimiento.</p>
+        <!-- About End -->
 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+        <!-- ==================== SECCION 6: TESTIMONIOS (SLIDER) ==================== -->
+        <section class="testimonials-area bgc-lighter pt-100 pb-130 rel z-1">
+            <div class="container">
+                <div class="row justify-content-center">
                     <div class="col-lg-6">
-                        <div class="faq-image-part" data-aos="fade-right" data-aos-duration="1500" data-aos-offset="50">
-                            <div class="image one">
-                                <img loading="lazy" src="assets/images/faqs/faq1.jpg" alt="Preguntas frecuentes">
-                            </div>
-                            <div class="image two">
-                                <img loading="lazy" src="assets/images/faqs/faq2.jpg" alt="Preguntas frecuentes">
-                            </div>
-                            <div class="image three">
-                                <img loading="lazy" src="assets/images/faqs/faq3.jpg" alt="Preguntas frecuentes">
-                            </div>
-                            <div class="image four">
-                                <img loading="lazy" src="assets/images/faqs/faq4.jpg" alt="Preguntas frecuentes">
-                            </div>
-                            <!--a href="https://www.youtube.com/watch?v=9Y7ma241N8k" class="mfp-iframe video-play"><i class="fas fa-play"></i></a-->
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-lines">
-               <span></span><span></span>
-               <span></span><span></span>
-            </div>
-        </section>
-        <!-- FAQ Area end -->
-           <!-- Projects Area start -->
-        <section class="projects-area pt-130 rpt-100 rel">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-xl-8 col-lg-10">
-                        <div class="section-title text-center pt-70 mb-60" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
-                            <span class="sub-title mb-10">Concretos Miracle</span>
-                            <h2>Nuestros productos de concreto</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="projects-active">
-                    <div class="project-item" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500" data-aos-offset="50">
-                        <div class="content">
-                             <h6><a href="services.html#concreto-estructural">Concreto Estructural Clase 1</a></h6>
-                            <span class="category">Concreto de alta resistencia diseñado para estructuras críticas. Ideal para obras demandantes que requieren durabilidad y seguridad máxima.</span>
-                            <a class="read-more" href="services.html#concreto-estructural">Ver más <i class="far fa-angle-double-right"></i></a>
-                        </div>
-                        <div class="image">
-                            <img loading="lazy" src="assets/images/projects/project1.jpg" alt="Proyecto de concreto">
-                        </div>
-                    </div>
-                    <div class="project-item" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1500" data-aos-offset="50">
-                        <div class="content">
-                            <h6><a href="services.html#concreto-convencional">Concreto Convencional</a></h6>
-                            <span class="category">Mezcla confiable para cimentaciones, pisos y elementos generales. Excelente trabajabilidad y rendimiento para obras estándar.</span>
-                            <a class="read-more" href="services.html#concreto-convencional">Más info <i class="far fa-angle-double-right"></i></a>
-                        </div>
-                        <div class="image">
-                            <img loading="lazy" src="assets/images/projects/project2.jpg" alt="Proyecto de concreto">
-                        </div>
-                    </div>
-                    <div class="project-item">
-                        <div class="content">
-                            <h6><a href="services.html#concreto-clase2">Concreto Convencional Clase 2</a></h6>
-                            <span class="category">Concreto confiable para usos generales con gran trabajabilidad, cohesión y rendimiento en proyectos comunes diarios.</span>
-                            <a class="read-more" href="services.html#concreto-clase2">Conocer más <i class="far fa-angle-double-right"></i></a>
-                        </div>
-                        <div class="image">
-                            <img loading="lazy" src="assets/images/projects/project1.jpg" alt="Proyecto de concreto">
-                        </div>
-                    </div>
-                    <div class="project-item">
-                        <div class="content">
-                             <h6><a href="services.html#concreto-mr">Concreto MR</a></h6>
-                            <span class="category">Concreto diseñado para cumplir con el módulo de ruptura, ideal para pavimentos, pisos industriales o zonas que requieren flexibilidad bajo carga.</span>
-                            <a class="read-more" href="services.html#concreto-mr">Descubre más <i class="far fa-angle-double-right"></i></a>
-                        </div>
-                        <div class="image">
-                            <img loading="lazy" src="assets/images/projects/project2.jpg" alt="Proyecto de concreto">
-                              </div>
-                           </div>
-                           <div class="project-item">
-                        <div class="content">
-                            <h6><a href="services.html#concreto-arquitectonico">Concreto Arquitectónico</a></h6>
-                            <span class="category">Concreto premezclado con acabado estético. Perfecto para fachadas, muros o elementos decorativos que necesitan un toque visual sin sacrificar resistencia.</span>
-                            <a class="read-more" href="services.html#concreto-arquitectonico">Ver diseño <i class="far fa-angle-double-right"></i></a>
-                        </div>
-                        <div class="image">
-                            <img loading="lazy" src="assets/images/projects/project2.jpg" alt="Proyecto de concreto">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-lines">
-               <span></span><span></span>
-               <span></span><span></span>
-            </div>
-        </section-->
-        <!-- Projects Area end -->
-       
-           <!-- CTA Counter Area start -->
-        <section class="cta-counter-area pt-100 pb-70 bgs-cover overlay" style="background-image: url(assets/images/about/Cta_miracle.1.jpg);">
-            <div class="container">
-               <div class="row justify-content-end">
-                    <div class="col-lg-6 mb-30 rmb-55 text-end" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
-                        <div class="content text-white mb-45">
-                            <div class="section-title mb-25">
-                                <span class="sub-title mb-10">Concretos Miracle</span>
-                                <h2>Obras que hablan por nosotros</h2>
-                            </div>
-                            <h6>Participamos en proyectos de construcción en mediana y gran escala en Puerto Vallarta y la región, respaldando cada obra con calidad, puntualidad y concreto de alto rendimiento.</h6>
-                        </div>
-                       <a href="projects.html" class="theme-btn">Ver proyectos <i class="far fa-angle-double-right"></i></a>
-                    </div>
-               </div>
-               <div class="row justify-content-center">
-                    <div class="col-xl-10 col-lg-12">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <!--div class="progress-contentt style-two white" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
-                                    <h6>Project Success Rate</h6>
-                                    <span class="counting">0</span-->
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <!--div class="progress-contentt style-two red mt-110" data-aos="fade-down" data-aos-duration="1500" data-aos-offset="50">
-                                    <h6>Satisfactions Our Clients</h6>
-                                    <span class="counting">0</span-->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-lines for-black-bg">
-               <span></span><span></span>
-               <span></span><span></span>
-            </div>
-        </section>
-        <!-- CTA Counter Area end -->
-         <!-- Testimonials Area start -->
-        <section class="testimonials-page-area pt-130 rpt-100 pb-100 rpb-70 rel z-1">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-12">
-                        <div class="section-title text-center mb-55" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
+                        <div class="section-title text-center mb-50" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
                             <span class="sub-title mb-10">Testimonios</span>
-                            <h2> Lo que nuestros clientes dicen</h2>
+                            <h2>Lo que dicen nuestros clientes</h2>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-xl-4 col-md-6">
-                        <div class="testimonial-item style-two" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
+                <div class="testimonials-slider" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500" data-aos-offset="50">
+                    <!-- Testimonio 1 -->
+                    <div class="testimonial-slide px-3">
+                        <div class="testimonial-item style-two">
                             <div class="testi-header">
                                 <div class="author">
-                                    <img loading="lazy" src="assets/images/testimonials/testimonio_1.png" alt="Author">
+                                    <img loading="lazy" src="assets/images/testimonials/testimonio_1.png" alt="Luis Espinosa">
                                 </div>
                                 <div class="ratting-part">
-                                    <!--h6>Quality Services</h6-->
                                     <div class="ratting">
                                         <i class="fas fa-star"></i>
                                         <i class="fas fa-star"></i>
@@ -609,25 +638,25 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="testi-text" style="font-size: 1.15rem;">
-                                <span></span>Concretos Miracle ha sido clave en nuestros proyectos. Excelente servicio y calidad en cada entrega.<span></span>
+                            <div class="testi-text">
+                                "Concretos Miracle ha sido clave en nuestros proyectos. Excelente servicio y calidad en cada entrega."
                             </div>
                             <div class="testi-footer">
                                 <div class="content">
-                                    <h6>Luis Espinosa </h6>
+                                    <h6>Luis Espinosa</h6>
                                     <span class="designation">Contratista de obra</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-md-6">
-                        <div class="testimonial-item style-two" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500" data-aos-offset="50">
+                    <!-- Testimonio 2 -->
+                    <div class="testimonial-slide px-3">
+                        <div class="testimonial-item style-two">
                             <div class="testi-header">
                                 <div class="author">
-                                    <img loading="lazy" src="assets/images/testimonials/testimonio_2.png" alt="Author">
+                                    <img loading="lazy" src="assets/images/testimonials/testimonio_2.png" alt="Adrian Garcia">
                                 </div>
                                 <div class="ratting-part">
-                                    <!--h6>Quality Services</h6-->
                                     <div class="ratting">
                                         <i class="fas fa-star"></i>
                                         <i class="fas fa-star"></i>
@@ -637,25 +666,25 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="testi-text" style="font-size: 1.15rem;">
-                                <span></span>Material de gran calidad y atención confiable. Son nuestro proveedor favorito.<span></span>
+                            <div class="testi-text">
+                                "Material de gran calidad y atencion confiable. Son nuestro proveedor favorito."
                             </div>
                             <div class="testi-footer">
                                 <div class="content">
-                                    <h6>Adrián García</h6>
+                                    <h6>Adrian Garcia</h6>
                                     <span class="designation">Constructor independiente</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-md-6">
-                        <div class="testimonial-item style-two" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1500" data-aos-offset="50">
+                    <!-- Testimonio 3 -->
+                    <div class="testimonial-slide px-3">
+                        <div class="testimonial-item style-two">
                             <div class="testi-header">
                                 <div class="author">
-                                    <img loading="lazy" src="assets/images/testimonials/testimonio_3.png" alt="Author">
+                                    <img loading="lazy" src="assets/images/testimonials/testimonio_3.png" alt="Julio Ramirez">
                                 </div>
                                 <div class="ratting-part">
-                                    <!--h6>Quality Services</h6-->
                                     <div class="ratting">
                                         <i class="fas fa-star"></i>
                                         <i class="fas fa-star"></i>
@@ -665,25 +694,25 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="testi-text" style="font-size: 1.15rem;">
-                                <span></span>La variedad de sus concretos me ha ayudado a mejorar mis trabajos y atender más clientes.<span></span>
+                            <div class="testi-text">
+                                "La variedad de sus concretos me ha ayudado a mejorar mis trabajos y atender mas clientes."
                             </div>
                             <div class="testi-footer">
                                 <div class="content">
-                                    <h6>Julio Ramírez</h6>
+                                    <h6>Julio Ramirez</h6>
                                     <span class="designation">Maestro de obra</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-md-6">
-                        <div class="testimonial-item style-two" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
+                    <!-- Testimonio 4 -->
+                    <div class="testimonial-slide px-3">
+                        <div class="testimonial-item style-two">
                             <div class="testi-header">
                                 <div class="author">
-                                    <img loading="lazy" src="assets/images/testimonials/testimonio_4.png" alt="Author">
+                                    <img loading="lazy" src="assets/images/testimonials/testimonio_4.png" alt="Ricardo Padilla">
                                 </div>
                                 <div class="ratting-part">
-                                    <!--h6>Quality Services</h6-->
                                     <div class="ratting">
                                         <i class="fas fa-star"></i>
                                         <i class="fas fa-star"></i>
@@ -693,69 +722,13 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="testi-text" style="font-size: 1.15rem;">
-                                <span></span>Cumplen siempre en tiempo y forma. Son una fuente confiable desde hace años.<span></span>
+                            <div class="testi-text">
+                                "Cumplen siempre en tiempo y forma. Son una fuente confiable desde hace anos."
                             </div>
                             <div class="testi-footer">
                                 <div class="content">
                                     <h6>Ricardo Padilla</h6>
-                                    <span class="designation"> Supervisor de obra</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-md-6">
-                        <div class="testimonial-item style-two" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500" data-aos-offset="50">
-                            <div class="testi-header">
-                                <div class="author">
-                                    <img loading="lazy" src="assets/images/testimonials/testimonio_5.png" alt="Author">
-                                </div>
-                                <div class="ratting-part">
-                                    <!--h6>Quality Services</h6-->
-                                    <div class="ratting">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="testi-text" style="font-size: 1.15rem;">
-                                <span></span>La resistencia y puntualidad de sus concretos nos permiten avanzar sin contratiempos.<span></span>
-                            </div>
-                            <div class="testi-footer">
-                                <div class="content">
-                                    <h6>Marisol G.</h6>
-                                    <span class="designation">Arquitecta</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-md-6">
-                        <div class="testimonial-item style-two" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1500" data-aos-offset="50">
-                            <div class="testi-header">
-                                <div class="author">
-                                    <img loading="lazy" src="assets/images/testimonials/testimonio_6.png" alt="Author">
-                                </div>
-                                <div class="ratting-part">
-                                    <!--h6>Quality Services</h6-->
-                                    <div class="ratting">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="testi-text" style="font-size: 1.15rem;">
-                                <span>"</span>El concreto estructural que manejan ha elevado la calidad de nuestras edificaciones.<span>"</span>
-                            </div>
-                            <div class="testi-footer">
-                                <div class="content">
-                                    <h6>Jorge P.</h6>
-                                    <span class="designation">Desarrollador inmobiliario</span>
+                                    <span class="designation">Supervisor de obra</span>
                                 </div>
                             </div>
                         </div>
@@ -767,20 +740,23 @@
                <span></span><span></span>
             </div>
         </section>
-        <!-- Testimonials Area end -->
-          <!-- CTA Counter Area start -->
-        <section class="cta-counter-area mx-xl-5 pt-80 pb-50 bgs-cover overlay" style="background-image: url(assets/images/background/cta_miracle.jpg);">
+        <!-- Testimonials End -->
+
+
+        <!-- ==================== SECCION 7: CTA FINAL ==================== -->
+        <section class="cta-area pt-80 pb-80 bgs-cover overlay" style="background-image: url(assets/images/background/cta_miracle.jpg);">
             <div class="container">
-               <div class="row justify-content-around align-items-center">
-                    <div class="col-xl-6 col-lg-8">
-                        <div class="section-title text-white mb-15 rmb-45" data-aos="fade-left" data-aos-duration="1500" data-aos-offset="50">
+               <div class="row justify-content-center align-items-center text-center">
+                    <div class="col-xl-8">
+                        <div class="section-title text-white mb-30" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
                             <span class="sub-title mb-10">Concretos Miracle</span>
                             <h2>¿Listo para comenzar tu proyecto?</h2>
-                            <p>Te asesoramos desde la planificación hasta la entrega final del concreto.</p>
+                            <p class="mt-15">Te asesoramos desde la planificacion hasta la entrega final del concreto. Cotiza sin compromiso.</p>
                         </div>
-                    </div>
-                    <div class="col-lg-4 mb-25 text-lg-end" data-aos="fade-right" data-aos-duration="1500" data-aos-offset="50">
-                       <a href="contact.html" class="theme-btn">Solicitar cotización<i class="far fa-angle-double-right"></i></a>
+                        <div data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500" data-aos-offset="50">
+                            <a href="contact.html#formulario-cotizacion" class="theme-btn me-3 mb-10">Solicitar cotizacion <i class="far fa-angle-double-right"></i></a>
+                            <a href="tel:+523222247200" class="theme-btn style-two mb-10"><i class="fas fa-phone-alt me-2"></i> Llamar ahora</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -789,742 +765,8 @@
                <span></span><span></span>
             </div>
         </section>
-        <!-- CTA Counter Area end -->
-        
-        
-        <!-- Services Area start -->
-        <!--section class="services-area pt-130 rpt-100 pb-100 rpb-70 rel z-1">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-xl-6 col-lg-8">
-                        <div class="section-title text-center mb-60" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
-                            <span class="sub-title mb-10">Best Services</span>
-                            <h2>We Provide Best Quality Construction Service</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500" data-aos-offset="50">
-                        <div class="service-item">
-                            <div class="icon">
-                                <i class="flaticon-excavator"></i>
-                            </div>
-                            <h5><a href="service-details.html">Construction Consultant</a></h5>
-                            <p>To take a trivial example which undert akese laborious physical exercise except</p>
-                            <a class="read-more" href="service-details.html">Read More <i class="far fa-angle-double-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1500" data-aos-offset="50">
-                        <div class="service-item">
-                            <div class="icon">
-                                <i class="flaticon-stairs"></i>
-                            </div>
-                            <h5><a href="service-details.html">Interior Design</a></h5>
-                            <p>To take a trivial example which undert akese laborious physical exercise except</p>
-                            <a class="read-more" href="service-details.html">Read More <i class="far fa-angle-double-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500" data-aos-offset="50">
-                        <div class="service-item">
-                            <div class="icon">
-                                <i class="flaticon-sketch"></i>
-                            </div>
-                            <h5><a href="service-details.html">Architecture & Building</a></h5>
-                            <p>To take a trivial example which undert akese laborious physical exercise except</p>
-                            <a class="read-more" href="service-details.html">Read More <i class="far fa-angle-double-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500" data-aos-offset="50">
-                        <div class="service-item">
-                            <div class="icon">
-                                <i class="flaticon-welding"></i>
-                            </div>
-                            <h5><a href="service-details.html">Welding & Laser</a></h5>
-                            <p>To take a trivial example which undert akese laborious physical exercise except</p>
-                            <a class="read-more" href="service-details.html">Read More <i class="far fa-angle-double-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1500" data-aos-offset="50">
-                        <div class="service-item">
-                            <div class="icon">
-                                <i class="flaticon-concrete-mixer"></i>
-                            </div>
-                            <h5><a href="service-details.html">Material Supply</a></h5>
-                            <p>To take a trivial example which undert akese laborious physical exercise except</p>
-                            <a class="read-more" href="service-details.html">Read More <i class="far fa-angle-double-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500" data-aos-offset="50">
-                        <div class="service-item">
-                            <div class="icon">
-                                <i class="flaticon-maintenance"></i>
-                            </div>
-                            <h5><a href="service-details.html">House Renovation</a></h5>
-                            <p>To take a trivial example which undert akese laborious physical exercise except</p>
-                            <a class="read-more" href="service-details.html">Read More <i class="far fa-angle-double-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-lines">
-               <span></span><span></span>
-               <span></span><span></span>
-            </div>
-        </section-->
-        <!-- Services Area end -->
-        
-        
-        <!-- CTA Counter Area start -->
-        <!--section class="cta-counter-area pt-100 bgs-cover overlay" style="background-image: url(assets/images/background/cta.jpg);">
-            <div class="container">
-               <div class="row justify-content-center align-items-center">
-                    <div class="col-xl-6 col-lg-7">
-                        <div class="section-title text-white mb-15 rmb-45" data-aos="fade-left" data-aos-duration="1500" data-aos-offset="50">
-                            <span class="sub-title mb-10">Get Consultation</span>
-                            <h2>Need Consultation For Build your Dream Projects</h2>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 mb-25 text-lg-end" data-aos="fade-right" data-aos-duration="1500" data-aos-offset="50">
-                       <a href="contact.html" class="theme-btn bg-white">Get Consultations <i class="far fa-angle-double-right"></i></a>
-                    </div>
-                </div>
-               <div class="counter-wrap bgc-primary">
-                    <div class="counter-item counter-text-wrap" data-aos="fade-up" data-aos-delay="50" data-aos-duration="1500" data-aos-offset="50">
-                        <div class="icon"></div>
-                        <span class="count-text plus" data-speed="3000" data-stop="253">0</span>
-                        <h6 class="counter-title">Project Complete</h6>
-                    </div>
-                    <div class="counter-item counter-text-wrap" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500" data-aos-offset="50">
-                        <div class="icon"></div>
-                        <span class="count-text plus" data-speed="3000" data-stop="839">0</span>
-                        <h6 class="counter-title">Quality Team Member</h6>
-                    </div>
-                    <div class="counter-item counter-text-wrap" data-aos="fade-up" data-aos-delay="150" data-aos-duration="1500" data-aos-offset="50">
-                        <div class="icon"></div>
-                        <span class="count-text plus" data-speed="3000" data-stop="42">0</span>
-                        <h6 class="counter-title">Awards Winning</h6>
-                    </div>
-                    <div class="counter-item counter-text-wrap" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1500" data-aos-offset="50">
-                        <div class="icon"></div>
-                        <span class="count-text plus" data-speed="3000" data-stop="38">0</span>
-                        <h6 class="counter-title">Years Of Experience</h6>
-                    </div>
-               </div>
-            </div>
-            <div class="bg-lines for-black-bg">
-               <span></span><span></span>
-               <span></span><span></span>
-            </div>
-        </section-->
-        <!-- CTA Counter Area end -->
-        
-        
-        <!-- Projects Area start -->
-        <!--section class="projects-area pt-130 rpt-100 rel">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-xl-8 col-lg-10">
-                        <div class="section-title text-center pt-70 mb-60" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
-                            <span class="sub-title mb-10">Latest Works</span>
-                            <h2>We Have Complete Lot’s Of Modern Construction & Building</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="projects-active">
-                    <div class="project-item" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500" data-aos-offset="50">
-                        <div class="content">
-                            <span class="category">Road & Highway</span>
-                            <h6><a href="project-details.html">Machinery road building new different road</a></h6>
-                            <a class="read-more" href="project-details.html">Read More <i class="far fa-angle-double-right"></i></a>
-                        </div>
-                        <div class="image">
-                            <img loading="lazy" src="assets/images/projects/project1.jpg" alt="Proyecto de concreto">
-                        </div>
-                    </div>
-                    <div class="project-item" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1500" data-aos-offset="50">
-                        <div class="content">
-                            <span class="category">Building Construction</span>
-                            <h6><a href="project-details.html">Working Modern House Building Projects</a></h6>
-                            <a class="read-more" href="project-details.html">Read More <i class="far fa-angle-double-right"></i></a>
-                        </div>
-                        <div class="image">
-                            <img loading="lazy" src="assets/images/projects/project2.jpg" alt="Proyecto de concreto">
-                        </div>
-                    </div>
-                    <div class="project-item">
-                        <div class="content">
-                            <span class="category">Road & Highway</span>
-                            <h6><a href="project-details.html">Machinery road building new different road</a></h6>
-                            <a class="read-more" href="project-details.html">Read More <i class="far fa-angle-double-right"></i></a>
-                        </div>
-                        <div class="image">
-                            <img loading="lazy" src="assets/images/projects/project1.jpg" alt="Proyecto de concreto">
-                        </div>
-                    </div>
-                    <div class="project-item">
-                        <div class="content">
-                            <span class="category">Building Construction</span>
-                            <h6><a href="project-details.html">Working Modern House Building Projects</a></h6>
-                            <a class="read-more" href="project-details.html">Read More <i class="far fa-angle-double-right"></i></a>
-                        </div>
-                        <div class="image">
-                            <img loading="lazy" src="assets/images/projects/project2.jpg" alt="Proyecto de concreto">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-lines">
-               <span></span><span></span>
-               <span></span><span></span>
-            </div>
-        </section-->
-        <!-- Projects Area end -->
-       
-       
-        <!-- Why Choose Us Area start -->
-        <!--section class="why-choose-area py-130 rpy-100 rel z-1">
-            <div class="container">
-                <div class="row gap-90 align-items-center">
-                    <div class="col-lg-6">
-                        <div class="why-choose-left rmb-55" data-aos="fade-left" data-aos-duration="1500" data-aos-offset="50">
-                            <div class="section-title mb-25">
-                                <span class="sub-title mb-10">Why Choose Us</span>
-                                <h2>We’re Trusted & More Professionals</h2>
-                            </div>
-                            <p>I will give you complete account the system expound the actual teachings of the great explorer of the truth, the master-builder</p>
-                            <div class="service-item-three mt-30">
-                                <div class="icon">
-                                    <i class="flaticon-friendship"></i>
-                                </div>
-                                <div class="content">
-                                    <h5><a href="service-details.html">Best Trusted Company</a></h5>
-                                    <p>To take a trivial example, which of us undertakes laborious physical exercise, except to obtain some advantage</p>
-                                </div>
-                            </div>
-                            <div class="service-item-three">
-                                <div class="icon">
-                                    <i class="flaticon-favorites"></i>
-                                </div>
-                                <div class="content">
-                                    <h5><a href="service-details.html">Quality Team Member</a></h5>
-                                    <p>We denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="why-choose-right" data-aos="fade-right" data-aos-duration="1500" data-aos-offset="50">
-                            <div class="progress-with-service">
-                                <div class="service-progress one">
-                                    <span class="counting">0</span>
-                                </div>
-                                <div class="content">
-                                    <h5><a href="service-details.html">Service Maintenance</a></h5>
-                                    <p>Neque porro quisquam estuie doloremsum quia</p>
-                                </div>
-                            </div>
-                            <div class="progress-with-service">
-                                <div class="service-progress two">
-                                    <span class="counting">0</span>
-                                </div>
-                                <div class="content">
-                                    <h5><a href="service-details.html">Architected & Building</a></h5>
-                                    <p>Ut enim ad minima veniam, quis nostrum ullame</p>
-                                </div>
-                            </div>
-                            <div class="progress-with-service">
-                                <div class="service-progress three">
-                                    <span class="counting">0</span>
-                                </div>
-                                <div class="content">
-                                    <h5><a href="service-details.html">Electrician Service</a></h5>
-                                    <p>Idea of denouncing pleasure praising complete</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-lines">
-               <span></span><span></span>
-               <span></span><span></span>
-            </div>
-        </section-->
-        <!-- Why Choose Us Area end -->
-        
-        
-        <!-- Team Area start -->
-        <!--section class="team-area pt-130 rpt-100 pb-45 rpb-15 bgs-cover rel z-1" style="background-image: url(assets/images/background/team-bg.png);">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-xl-8 col-lg-10">
-                        <div class="section-title text-center text-white mb-60" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
-                            <span class="sub-title mb-10">Team Member</span>
-                            <h2>Meet Our Professionals</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-xl-3 col-lg-4 col-md-6">
-                        <div class="team-member" data-aos="fade-up" data-aos-delay="50" data-aos-duration="1500" data-aos-offset="50">
-                            <div class="image">
-                                <img src="assets/images/team/member1.jpg" alt="Member">
-                            </div>
-                            <div class="content">
-                                <h6>Lawrence C. Truex</h6>
-                                <span class="designation">CEO & Founder</span>
-                                <div class="social-style-two">
-                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fab fa-instagram"></i></a>
-                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6">
-                        <div class="team-member" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500" data-aos-offset="50">
-                            <div class="image">
-                                <img src="assets/images/team/member2.jpg" alt="Member">
-                            </div>
-                            <div class="content">
-                                <h6>Richard D. Hopson</h6>
-                                <span class="designation">Senior Engineer</span>
-                                <div class="social-style-two">
-                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fab fa-instagram"></i></a>
-                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6">
-                        <div class="team-member" data-aos="fade-up" data-aos-delay="150" data-aos-duration="1500" data-aos-offset="50">
-                            <div class="image">
-                                <img src="assets/images/team/member3.jpg" alt="Member">
-                            </div>
-                            <div class="content">
-                                <h6>Justin R. Cardona</h6>
-                                <span class="designation">Interior Designer</span>
-                                <div class="social-style-two">
-                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fab fa-instagram"></i></a>
-                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6">
-                        <div class="team-member" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1500" data-aos-offset="50">
-                            <div class="image">
-                                <img src="assets/images/team/member4.jpg" alt="Member">
-                            </div>
-                            <div class="content">
-                                <h6>Dewayne F. Shurtle</h6>
-                                <span class="designation">Material Designer</span>
-                                <div class="social-style-two">
-                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fab fa-instagram"></i></a>
-                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-lines for-black-bg">
-               <span></span><span></span>
-               <span></span><span></span>
-            </div>
-        </section-->
-        <!-- Team Area end -->
-        
-        
-        <!-- FAQ Area start -->
-        <!--section class="faq-area py-130 rpy-100 rel z-1">
-            <div class="container">
-                <div class="row gap-150 align-items-center">
-                    <div class="col-lg-6">
-                        <div class="faq-content-part rmb-55" data-aos="fade-left" data-aos-duration="1500" data-aos-offset="50">
-                            <div class="section-title mb-15">
-                                <span class="sub-title mb-10">Explore Features</span>
-                                <h2>Provide the Guaranteed Quality Construction</h2>
-                            </div>
-                            <p>Ut enim ad minima veniam quis nostrum exercitationem ullam corporis suscipite laboriosam, nisi ut aliquid ex ea commodi consequatur</p>
-                            <div class="accordion pt-10" id="faq-accordion">
-                                <div class="accordion-item">
-                                    <h5 class="accordion-header">
-                                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseOne">
-                                           How We Get Our Project Planning ?
-                                        </button>
-                                    </h5>
-                                    <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#faq-accordion">
-                                        <div class="accordion-body">
-                                            <p>To take a trivial example which undertakes laborious physical exercise except to obtain some advantage pleasure annoying consequences</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h5 class="accordion-header">
-                                        <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
-                                            Architecture & Interior Design ?
-                                        </button>
-                                    </h5>
-                                    <div id="collapseTwo" class="accordion-collapse collapse show" data-bs-parent="#faq-accordion">
-                                        <div class="accordion-body">
-                                            <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur veillum dolorem fugiat</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h5 class="accordion-header">
-                                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseThree">
-                                            Material Design & Building Construction ?
-                                        </button>
-                                    </h5>
-                                    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faq-accordion">
-                                        <div class="accordion-body">
-                                            <p>To take a trivial example which undertakes laborious physical exercise except to obtain some advantage pleasure annoying consequences</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="faq-image-part" data-aos="fade-right" data-aos-duration="1500" data-aos-offset="50">
-                            <div class="image one">
-                                <img loading="lazy" src="assets/images/faqs/faq1.jpg" alt="Preguntas frecuentes">
-                            </div>
-                            <div class="image two">
-                                <img loading="lazy" src="assets/images/faqs/faq2.jpg" alt="Preguntas frecuentes">
-                            </div>
-                            <div class="image three">
-                                <img loading="lazy" src="assets/images/faqs/faq3.jpg" alt="Preguntas frecuentes">
-                            </div>
-                            <div class="image four">
-                                <img loading="lazy" src="assets/images/faqs/faq4.jpg" alt="Preguntas frecuentes">
-                            </div>
-                            <a href="https://www.youtube.com/watch?v=9Y7ma241N8k" class="mfp-iframe video-play"><i class="fas fa-play"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-lines">
-               <span></span><span></span>
-               <span></span><span></span>
-            </div>
-        </section-->
-        <!-- FAQ Area end -->
-        
-        
-        <!-- Testimonials Area start -->
-        <!--section class="testimonials-area rel z-2">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-5">
-                        <div class="testimonials-left" data-aos="fade-right" data-aos-duration="1500" data-aos-offset="50">
-                            <img loading="lazy" src="assets/images/testimonials/testimonial-left.jpg" alt="Testimonial">
-                            <div class="testimonial-dots"></div>
-                        </div>
-                    </div>
-                    <div class="col-xl-7">
-                        <div class="testimonials-active" data-aos="fade-left" data-aos-duration="1500" data-aos-offset="50">
-                            <div class="testimonial-item">
-                                <div class="testi-header">
-                                    <h6>Quality Services</h6>
-                                    <div class="ratting">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                </div>
-                                <div class="testi-text">
-                                    "At vero eos accusamus odio dignissimos ducimus blanditiis praesentium voluptatue eleniti atque corruptie doloresey molestias excepturi sint occaecati cupiditate ealiasy consequatur perferendis doloribus"
-                                </div>
-                                <div class="testi-footer">
-                                    <b>Joe V. Rodriguez/</b>CEO & Founder
-                                </div>
-                            </div>
-                            <div class="testimonial-item">
-                                <div class="testi-header">
-                                    <h6>Quality Services</h6>
-                                    <div class="ratting">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                </div>
-                                <div class="testi-text">
-                                    "At vero eos accusamus odio dignissimos ducimus blanditiis praesentium voluptatue eleniti atque corruptie doloresey molestias excepturi sint occaecati cupiditate ealiasy consequatur perferendis doloribus"
-                                </div>
-                                <div class="testi-footer">
-                                    <b>Joe V. Rodriguez/</b>CEO & Founder
-                                </div>
-                            </div>
-                            <div class="testimonial-item">
-                                <div class="testi-header">
-                                    <h6>Quality Services</h6>
-                                    <div class="ratting">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                </div>
-                                <div class="testi-text">
-                                    "At vero eos accusamus odio dignissimos ducimus blanditiis praesentium voluptatue eleniti atque corruptie doloresey molestias excepturi sint occaecati cupiditate ealiasy consequatur perferendis doloribus"
-                                </div>
-                                <div class="testi-footer">
-                                    <b>Joe V. Rodriguez/</b>CEO & Founder
-                                </div>
-                            </div>
-                            <div class="testimonial-item">
-                                <div class="testi-header">
-                                    <h6>Quality Services</h6>
-                                    <div class="ratting">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                </div>
-                                <div class="testi-text">
-                                    "At vero eos accusamus odio dignissimos ducimus blanditiis praesentium voluptatue eleniti atque corruptie doloresey molestias excepturi sint occaecati cupiditate ealiasy consequatur perferendis doloribus"
-                                </div>
-                                <div class="testi-footer">
-                                    <b>Joe V. Rodriguez/</b>CEO & Founder
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section-->
-        <!-- Testimonials Area end -->
-       
-       
-        <!-- Contact Area start -->
-        <!--section class="contact-area bgc-lighter py-130 rpy-100 rel z-1">
-            <div class="container">
-                <div class="row gap-150 align-items-center">
-                    <div class="col-lg-6">
-                        <div class="contact-form-part rmb-55" data-aos="fade-left" data-aos-duration="1500" data-aos-offset="50">
-                            <div class="section-title mb-35">
-                                <span class="sub-title mb-10">Get In Touch</span>
-                                <h2>Talk About Your Next Dream Projects</h2>
-                            </div>
-                            <form id="contactForm" class="contactForm" name="contactForm" action="https://html.webtend.net/2024/limestone/assets/php/form-process.php" method="post">
-                                <div class="row gap-20">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <input type="text" id="name" name="name" class="form-control" value="" placeholder="Full Name" required data-error="Please enter your Name">
-                                            <div class="help-block with-errors"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <input type="text" id="phone_number" name="phone_number" class="form-control" value="" placeholder="Phone No" required data-error="Please enter your Phone No">
-                                            <div class="help-block with-errors"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <input type="email" id="email" name="email" class="form-control" value="" placeholder="Email Address" required data-error="Please enter your Email">
-                                            <div class="help-block with-errors"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <input type="text" id="subject" name="subject" class="form-control" value="" placeholder="Subject" required data-error="Please enter your Subject">
-                                            <div class="help-block with-errors"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <textarea name="message" id="message" class="form-control" rows="4" placeholder="Message" required data-error="Please enter your Message"></textarea>
-                                            <div class="help-block with-errors"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <div class="form-group mb-0">
-                                            <button type="submit" class="theme-btn">Send Message Us <i class="far fa-angle-double-right"></i></button>
-                                            <div id="msgSubmit" class="hidden"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1500" data-aos-offset="50">
-                        <div class="contact-image-part rel">
-                            <div class="experience-years">
-                                <h6 class="title">Q & A <i class="far fa-arrow-right"></i></h6>
-                                <h6>We Have 25 Years Of Experience</h6>
-                            </div>
-                            <img src="assets/images/contact/form-right.jpg" alt="Contact">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-lines">
-               <span></span><span></span>
-               <span></span><span></span>
-            </div>
-            <div class="for-contact-bg">
-                <img src="assets/images/contact/contact-bg-dots.png" alt="Dots">
-            </div>
-        </section-->
-        <!-- Contact Area end -->
-           
-           
-        <!-- Blog Area start -->
-        <!--section class="blog-area pt-130 rpt-100 pb-100 rpb-70 rel">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-xl-7 col-lg-9">
-                        <div class="section-title text-center mb-60" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
-                            <span class="sub-title mb-10">Latest News & Blog</span>
-                            <h2>Read Our Construction News Blog & Articles</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xl-4 col-md-6">
-                        <div class="blog-item" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500" data-aos-offset="50">
-                            <div class="image">
-                                <span class="date">25 May</span>
-                                <img src="assets/images/blog/blog1.jpg" alt="Blog">
-                            </div>
-                            <div class="content">
-                                <ul class="blog-meta">
-                                    <li>
-                                        <a href="#">Construction</a>
-                                    </li>
-                                    <li>
-                                        <i class="far fa-comments"></i>
-                                        <a href="#">Comments(05)</a>
-                                    </li>
-                                </ul>
-                                <h5><a href="blog-details.html">Fine-Gra Access Handling Management Security</a></h5>
-                                <a class="read-more" href="blog-details.html">Read More <i class="far fa-angle-double-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-md-6">
-                        <div class="blog-item" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1500" data-aos-offset="50">
-                            <div class="image">
-                                <span class="date">28 May</span>
-                                <img src="assets/images/blog/blog2.jpg" alt="Blog">
-                            </div>
-                            <div class="content">
-                                <ul class="blog-meta">
-                                    <li>
-                                        <a href="#">Interior Design</a>
-                                    </li>
-                                    <li>
-                                        <i class="far fa-comments"></i>
-                                        <a href="#">Comments(05)</a>
-                                    </li>
-                                </ul>
-                                <h5><a href="blog-details.html">Overcoming to Challenges Informational Websites</a></h5>
-                                <a class="read-more" href="blog-details.html">Read More <i class="far fa-angle-double-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-md-6">
-                        <div class="blog-item" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500" data-aos-offset="50">
-                            <div class="image">
-                                <span class="date">30 May</span>
-                                <img src="assets/images/blog/blog3.jpg" alt="Blog">
-                            </div>
-                            <div class="content">
-                                <ul class="blog-meta">
-                                    <li>
-                                        <a href="#">Architecture</a>
-                                    </li>
-                                    <li>
-                                        <i class="far fa-comments"></i>
-                                        <a href="#">Comments(05)</a>
-                                    </li>
-                                </ul>
-                                <h5><a href="blog-details.html">Full Stack GraphQL Next.js Neo Aura And Vercel</a></h5>
-                                <a class="read-more" href="blog-details.html">Read More <i class="far fa-angle-double-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-lines">
-               <span></span><span></span>
-               <span></span><span></span>
-            </div>
-        </section-->
-        <!-- Blog Area end -->
-          
-          
-        <!-- Partner Area start -->
-        <!--section class="partner-area pb-85 rpb-55 rel z-1">
-            <div class="container">
-                <div class="row gap-90">
-                    <div class="col-lg-4">
-                        <div class="section-title mb-45" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
-                            <span class="sub-title mb-10">Our Partners</span>
-                            <h4>We’ve 1520+ Global Premium Clients</h4>
-                        </div>
-                    </div>
-                    <div class="col-lg-8">
-                        <div class="row row-cols-3">
-                            <div class="col">
-                                <a href="contact.html" class="partner-item" data-aos="fade-up" data-aos-delay="50" data-aos-duration="1500" data-aos-offset="50">
-                                    <img src="assets/images/partners/partner1.png" alt="Partner">
-                                </a>
-                            </div>
-                            <div class="col">
-                                <a href="contact.html" class="partner-item" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500" data-aos-offset="50">
-                                    <img src="assets/images/partners/partner2.png" alt="Partner">
-                                </a>
-                            </div>
-                            <div class="col">
-                                <a href="contact.html" class="partner-item" data-aos="fade-up" data-aos-delay="150" data-aos-duration="1500" data-aos-offset="50">
-                                    <img src="assets/images/partners/partner3.png" alt="Partner">
-                                </a>
-                            </div>
-                            <div class="col">
-                                <a href="contact.html" class="partner-item" data-aos="fade-up" data-aos-delay="50" data-aos-duration="1500" data-aos-offset="50">
-                                    <img src="assets/images/partners/partner4.png" alt="Partner">
-                                </a>
-                            </div>
-                            <div class="col">
-                                <a href="contact.html" class="partner-item" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500" data-aos-offset="50">
-                                    <img src="assets/images/partners/partner5.png" alt="Partner">
-                                </a>
-                            </div>
-                            <div class="col">
-                                <a href="contact.html" class="partner-item" data-aos="fade-up" data-aos-delay="150" data-aos-duration="1500" data-aos-offset="50">
-                                    <img src="assets/images/partners/partner6.png" alt="Partner">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-lines">
-               <span></span><span></span>
-               <span></span><span></span>
-            </div>
-        </section-->
-        <!-- Partner Area end -->
-           
+        <!-- CTA End -->
+
 
         <!-- footer area start -->
         <footer class="main-footer rel z-1">
@@ -1538,11 +780,6 @@
                         </div>
                         <div class="col-xl-8 col-lg-9 text-lg-end">
                             <div class="footer-clients mb-30 rmb-10" data-aos="fade-right" data-aos-duration="1500" data-aos-offset="50">
-                                <div class="clients">
-                                    <!--img src="assets/images/footer/client1.jpg" alt="Client">
-                                    <img src="assets/images/footer/client2.jpg" alt="Client">
-                                    <img src="assets/images/footer/client3.jpg" alt="Client"-->
-                                </div>
                                 <h5>¿Tienes alguna pregunta? Llama <a href="tel:+523222247200">+52 (322) 224 7200</a></h5>
                             </div>
                         </div>
@@ -1554,31 +791,30 @@
                                 <div class="text">
                                     <p>Calidad y resistencia en cada proyecto.</p>
                                     <a href="mailto:info@concretosmiracle.com"><i class="far fa-envelope"></i> info@concretosmiracle.com</a><br>
-                                    <a href="tel:+523222247200"><i class="fal fa-phone"></i>+52 (322) 224 7200</a>
+                                    <a href="tel:+523222247200"><i class="fal fa-phone"></i> +52 (322) 224 7200</a>
                                 </div>
                             </div>
                         </div>
                         <div class="col-xl-2 col-lg-3 col-sm-6">
                             <div class="footer-widget footer-links" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500" data-aos-offset="50">
-                                <h5 class="footer-title">Enlaces rápidos</h5>
+                                <h5 class="footer-title">Enlaces rapidos</h5>
                                 <ul>
                                     <li><a href="index.html">Inicio</a></li>
                                     <li><a href="about.html">Nosotros</a></li>
                                     <li><a href="services.html">Productos</a></li>
                                     <li><a href="projects.html">Proyectos</a></li>
                                     <li><a href="blog.html">Cotizaciones</a></li>
-                                    <!--li><a href="about.html">Blog</a></li-->
                                     <li><a href="contact.html">Contacto</a></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-4 col-sm-6">
                             <div class="footer-widget newsletter-widget" data-aos="fade-up" data-aos-delay="150" data-aos-duration="1500" data-aos-offset="50">
-                                <!--h5 class="footer-title">Newsletter</h5>
-                                <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse</p-->
+                                <h5 class="footer-title">Newsletter</h5>
+                                <p>Recibe noticias y promociones</p>
                                 <form class="newsletter-form" action="assets/php/form-process.php" method="post">
                                     <input type="hidden" name="form_type" value="newsletter">
-                                    <input type="email" name="email" placeholder="Correo electrónico" required>
+                                    <input type="email" name="email" placeholder="Correo electronico" required>
                                     <button type="submit"><i class="far fa-angle-double-right"></i></button>
                                 </form>
                             </div>
@@ -1588,27 +824,27 @@
                                 <h5 class="footer-title">Galeria</h5>
                                 <div class="gallery">
                                     <a href="assets/images/footer/gallery1.jpg">
-                                        <img loading="lazy" src="assets/images/footer/gallery1.jpg" alt="Galería de proyectos">
+                                        <img loading="lazy" src="assets/images/footer/gallery1.jpg" alt="Galeria de proyectos">
                                         <i class="far fa-plus"></i>
                                     </a>
                                     <a href="assets/images/footer/gallery2.jpg">
-                                        <img loading="lazy" src="assets/images/footer/gallery2.jpg" alt="Galería de proyectos">
+                                        <img loading="lazy" src="assets/images/footer/gallery2.jpg" alt="Galeria de proyectos">
                                         <i class="far fa-plus"></i>
                                     </a>
                                     <a href="assets/images/footer/gallery3.jpg">
-                                        <img loading="lazy" src="assets/images/footer/gallery3.jpg" alt="Galería de proyectos">
+                                        <img loading="lazy" src="assets/images/footer/gallery3.jpg" alt="Galeria de proyectos">
                                         <i class="far fa-plus"></i>
                                     </a>
                                     <a href="assets/images/footer/gallery4.jpg">
-                                        <img loading="lazy" src="assets/images/footer/gallery4.jpg" alt="Galería de proyectos">
+                                        <img loading="lazy" src="assets/images/footer/gallery4.jpg" alt="Galeria de proyectos">
                                         <i class="far fa-plus"></i>
                                     </a>
                                     <a href="assets/images/footer/gallery5.jpg">
-                                        <img loading="lazy" src="assets/images/footer/gallery5.jpg" alt="Galería de proyectos">
+                                        <img loading="lazy" src="assets/images/footer/gallery5.jpg" alt="Galeria de proyectos">
                                         <i class="far fa-plus"></i>
                                     </a>
                                     <a href="assets/images/footer/gallery6.jpg">
-                                        <img loading="lazy" src="assets/images/footer/gallery6.jpg" alt="Galería de proyectos">
+                                        <img loading="lazy" src="assets/images/footer/gallery6.jpg" alt="Galeria de proyectos">
                                         <i class="far fa-plus"></i>
                                     </a>
                                 </div>
@@ -1646,8 +882,8 @@
 
     </div>
     <!--End pagewrapper-->
-   
-    
+
+
     <!-- Jquery -->
     <script src="assets/js/jquery-3.6.0.min.js"></script>
     <!-- Bootstrap -->
@@ -1670,34 +906,50 @@
     <script src="assets/js/aos.js"></script>
     <!-- Custom script -->
     <script src="assets/js/script.js"></script>
-    
-    <!-- For Contact Form -->
-    <script src="assets/js/jquery.ajaxchimp.min.js"></script>
-    <script src="assets/js/form-validator.min.js"></script>
-    <script src="assets/js/contact-form-script.js"></script>
 
-    <!-- Hero Video Control - Autoplay loop completo -->
+    <!-- Hero Video Control -->
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         const video = document.getElementById('hero-video');
-
         if (video) {
-            // Habilitar loop nativo del video
             video.loop = true;
-
-            // Asegurar que empiece desde el inicio
             video.currentTime = 0;
-
-            // Reproducir cuando esté listo
             video.play().catch(function(error) {
-                console.log('Autoplay bloqueado, requiere interacción del usuario');
+                console.log('Autoplay bloqueado');
             });
         }
     });
     </script>
 
-
-    
+    <!-- Testimonials Slider -->
+    <script>
+    $(document).ready(function() {
+        $('.testimonials-slider').slick({
+            dots: true,
+            arrows: false,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 5000,
+            responsive: [
+                {
+                    breakpoint: 992,
+                    settings: {
+                        slidesToShow: 2
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 1
+                    }
+                }
+            ]
+        });
+    });
+    </script>
 
 </body>
 </html>
