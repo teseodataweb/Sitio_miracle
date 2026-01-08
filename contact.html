@@ -175,54 +175,11 @@
 
                                 <div class="navbar-collapse collapse clearfix">
                                     <ul class="navigation clearfix">
-                                      <li><a href="index.html">Inicio</a>
-                                     <!--
-                                    <ul>
-                                       <li><a href="index.html">Home One</a></li-->
-                                       <!--li><a href="index2.html">Home Two</a></li>
-                                       <li><a href="index3.html">Home Three</a></li-->
-                                     <!--</ul>-->
-                                    </li>
-
+                                        <li><a href="index.html">Inicio</a></li>
                                         <li><a href="about.html">Nosotros</a></li>
-                                        <li><a href="services.html">Productos</a>
-                                        <!--
-                                        <ul>
-                                        <li><a href="faqs.html">faqs</a></li>
-                                        <li class="dropdown"><a href="#">Services</a-->
-                                         <ul>
-                                        <li><a href="services.html">Our Services</a></li>
-                                        <!--li><a href="service-details.html">Service Details</a></li-->
-                                         </ul>
-                                            </ul>
-                                        
-
-                                       <li><a href="projects.html">Proyectos</a>
-                                          <!--
-                                         <ul>
-                                        <li><a href="projects.html">Project Grid</a></li>
-                                        <li><a href="projects-masonry.html">Project Masonry</a></li>
-                                         <li><a href="project-details.html">Project Details</a></li-->
-                                        </ul>
-    
-                                        </li>
-
-                                        <li><a href="blog.html">Cotizaciones</a>
-                                           <!--
-                                         <ul>
-                                          <li><a href="blog.html">blog standard</a></li>
-                                          <li><a href="blog-details.html">blog details</a></li-->
-                                         </ul>
-                                         <!--li><a href="blog-details.html">Blog</a-->
-                                             <!--
-                                              <ul>
-                                                 <li><a href="blog-details.html">blog details</a></li></ul>-->
-                                                </li>
-
-                                                 </li>
-
-                                         </li>
-
+                                        <li><a href="services.html">Productos</a></li>
+                                        <li><a href="projects.html">Proyectos</a></li>
+                                        <li><a href="blog.html">Cotizaciones</a></li>
                                         <li><a href="contact.html">Contacto</a></li>
                                     </ul>
                                 </div>
@@ -354,7 +311,7 @@
         </section>
         <!-- About Us Area end -->
           <!-- Contact Area start -->
-<section class="contact-area py-130 rpy-100 rel z-1">
+<section id="formulario-cotizacion" class="contact-area py-130 rpy-100 rel z-1">
     <div class="container">
         <div class="row gap-100 align-items-center">
             
@@ -747,6 +704,20 @@
     <script src="assets/js/jquery.ajaxchimp.min.js"></script>
     <script src="assets/js/form-validator.min.js"></script>
     <script src="assets/js/contact-form-script.js"></script>
+
+    <!-- Pre-rellenar formulario desde URL -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const producto = urlParams.get('producto');
+            if (producto) {
+                const campoConcreto = document.getElementById('concrete_type');
+                if (campoConcreto) {
+                    campoConcreto.value = decodeURIComponent(producto);
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>
