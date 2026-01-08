@@ -4574,7 +4574,7 @@ h6, .h6, .slide-content .sub-title, .blog-item .image .date {
       .service-item.style-three:hover .icon {
         color: var(--heading-color);
         background: var(--primary-color); }
-      .service-item.style-three:hover .number, .service-item.style-three:hover h5 a, .service-item.style-three:hover p {
+      .service-item.style-three:hover .number, .service-item.style-three:hover h5, .service-item.style-three:hover h5 a, .service-item.style-three:hover p {
         color: white; }
       .service-item.style-three:hover .read-more {
         top: 100%;
