@@ -7720,11 +7720,13 @@ section.cta-counter-area {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     height: 100vh;
     min-height: 600px;
     padding: 0 15px;
     max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .hero-video-content h1 {
