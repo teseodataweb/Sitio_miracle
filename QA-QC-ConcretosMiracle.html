@@ -1,0 +1,2203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QA/QC - Concretos Miracle | Revision para Produccion</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #f7941d;
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            color: #1a1a1a;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .header .subtitle {
+            color: #f7941d;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .header .project-info {
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            text-align: left;
+            background: #fafafa;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .header .project-info div {
+            padding: 10px;
+        }
+
+        .header .project-info label {
+            font-weight: 600;
+            color: #666;
+            font-size: 12px;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .header .project-info span {
+            font-size: 14px;
+            color: #333;
+        }
+
+        /* Secciones */
+        .section {
+            margin-bottom: 40px;
+            page-break-inside: avoid;
+        }
+
+        .section-title {
+            background: #1a1a1a;
+            color: white;
+            padding: 15px 20px;
+            font-size: 16px;
+            margin-bottom: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .section-title .page-url {
+            font-size: 12px;
+            color: #f7941d;
+            font-weight: normal;
+        }
+
+        /* Tabla de revision */
+        .review-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .review-table th {
+            background: #f7941d;
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+            font-size: 13px;
+            text-transform: uppercase;
+        }
+
+        .review-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+            vertical-align: top;
+        }
+
+        .review-table tr:hover {
+            background: #fafafa;
+        }
+
+        .review-table .area-header {
+            background: #e8e8e8;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .review-table .area-header td {
+            padding: 10px 15px;
+            border-bottom: 2px solid #ddd;
+            font-size: 14px;
+        }
+
+        .review-table .area-pm {
+            background: #fff7ed;
+        }
+
+        .review-table .area-pm td:first-child {
+            border-left: 4px solid #f7941d;
+        }
+
+        .review-table .area-design {
+            background: #f0f9ff;
+        }
+
+        .review-table .area-design td:first-child {
+            border-left: 4px solid #0ea5e9;
+        }
+
+        .review-table .criterio {
+            width: 40%;
+        }
+
+        .review-table .estado {
+            width: 20%;
+            text-align: center;
+        }
+
+        .review-table .observaciones {
+            width: 40%;
+        }
+
+        /* Checkboxes */
+        .checkbox-group {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 11px;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+
+        /* Input para observaciones */
+        .obs-input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 12px;
+            min-height: 50px;
+            resize: vertical;
+        }
+
+        /* Firmas */
+        .signatures {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 20px;
+            padding: 20px;
+            background: #fafafa;
+            border-radius: 8px;
+        }
+
+        .signature-box {
+            text-align: center;
+            padding: 20px;
+            border: 1px dashed #ccc;
+            border-radius: 8px;
+            background: white;
+        }
+
+        .signature-box.pm {
+            border-color: #f7941d;
+        }
+
+        .signature-box.design {
+            border-color: #0ea5e9;
+        }
+
+        .signature-box .area-name {
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .signature-box.pm .area-name {
+            color: #f7941d;
+        }
+
+        .signature-box.design .area-name {
+            color: #0ea5e9;
+        }
+
+        .signature-line {
+            border-bottom: 1px solid #333;
+            height: 40px;
+            margin: 15px 0 10px;
+        }
+
+        .signature-box .name-date {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .signature-box input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .signature-box label {
+            font-size: 11px;
+            color: #666;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* Status badges */
+        .status-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .status-pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        /* Resumen final */
+        .final-summary {
+            background: #1a1a1a;
+            color: white;
+            padding: 30px;
+            margin-top: 40px;
+            border-radius: 8px;
+        }
+
+        .final-summary h3 {
+            color: #f7941d;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .summary-item {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+        }
+
+        .summary-item .number {
+            font-size: 36px;
+            font-weight: 700;
+            color: #f7941d;
+        }
+
+        .summary-item .label {
+            font-size: 12px;
+            color: #ccc;
+            margin-top: 5px;
+        }
+
+        .final-approval {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .final-approval .approval-box {
+            background: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .final-approval .approval-box h4 {
+            color: #f7941d;
+            margin-bottom: 15px;
+        }
+
+        .final-approval input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 4px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+        }
+
+        .final-approval input::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                padding: 20px;
+            }
+
+            .section {
+                page-break-inside: avoid;
+            }
+
+            .obs-input {
+                border: 1px solid #ccc;
+            }
+        }
+
+        /* Leyenda */
+        .legend {
+            background: #f9f9f9;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+        }
+
+        .legend-ok { background: #28a745; }
+        .legend-issue { background: #ffc107; }
+        .legend-fail { background: #dc3545; }
+        .legend-na { background: #6c757d; }
+
+        /* Instructions */
+        .instructions {
+            background: linear-gradient(135deg, #f7941d 0%, #e88a1a 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .instructions h3 {
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .instructions ol {
+            margin-left: 20px;
+        }
+
+        .instructions li {
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        /* Area indicators */
+        .area-indicator {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .area-indicator.pm {
+            background: #fff7ed;
+            color: #c2410c;
+        }
+
+        .area-indicator.design {
+            background: #f0f9ff;
+            color: #0369a1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>DOCUMENTO DE CONTROL DE CALIDAD (QA/QC)</h1>
+            <p class="subtitle">Sitio Web - Concretos Miracle</p>
+
+            <div class="project-info">
+                <div>
+                    <label>Proyecto</label>
+                    <span>Sitio Web Concretos Miracle</span>
+                </div>
+                <div>
+                    <label>URL Produccion</label>
+                    <span>concretosmiracle.com</span>
+                </div>
+                <div>
+                    <label>Version</label>
+                    <span>2.0 - Enero 2026</span>
+                </div>
+                <div>
+                    <label>Fecha de Revision</label>
+                    <span>_____ / _____ / 2026</span>
+                </div>
+                <div>
+                    <label>Ambiente</label>
+                    <span>[ ] Desarrollo  [ ] Staging  [ ] Produccion</span>
+                </div>
+                <div>
+                    <label>Estado General</label>
+                    <span class="status-badge status-pending">Pendiente</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Instrucciones -->
+        <div class="instructions">
+            <h3>Instrucciones de Revision</h3>
+            <ol>
+                <li>Revisar cada criterio marcando: <strong>OK</strong> (cumple), <strong>OBS</strong> (requiere ajuste menor), <strong>Falla</strong> (requiere correccion), <strong>N/A</strong> (no aplica)</li>
+                <li>Documentar todas las observaciones con detalle suficiente para que el equipo tecnico pueda corregir</li>
+                <li>Cada area debe firmar su seccion una vez completada la revision</li>
+                <li>El documento requiere aprobacion de ambas areas para considerarse completo</li>
+            </ol>
+        </div>
+
+        <!-- Leyenda -->
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color legend-ok"></div>
+                <span><strong>OK</strong> - Cumple correctamente</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color legend-issue"></div>
+                <span><strong>OBS</strong> - Requiere ajuste menor</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color legend-fail"></div>
+                <span><strong>FALLA</strong> - Requiere correccion</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color legend-na"></div>
+                <span><strong>N/A</strong> - No aplica</span>
+            </div>
+        </div>
+
+        <!-- ==================== PAGINA 1: INDEX ==================== -->
+        <div class="section">
+            <h2 class="section-title">
+                1. PAGINA DE INICIO
+                <span class="page-url">index.html</span>
+            </h2>
+
+            <table class="review-table">
+                <thead>
+                    <tr>
+                        <th class="criterio">Criterio de Evaluacion</th>
+                        <th class="estado">Estado</th>
+                        <th class="observaciones">Observaciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Area 1: Project Manager + Marketing -->
+                    <tr class="area-header">
+                        <td colspan="3">AREA 1: PROJECT MANAGER + MARKETING <span class="area-indicator pm">PM + MKT</span></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>Hero Section: Mensaje principal claro y alineado a la marca</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>Video de fondo: Calidad, duracion y relevancia del contenido</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>Seccion "Nuestros Productos": Informacion correcta de los 4 tipos de concreto</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>Seccion "Por que elegirnos": Diferenciadores correctos y relevantes</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>CTAs (Call to Action): Textos persuasivos y enlaces correctos</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>Informacion de contacto: Telefono, email, WhatsApp correctos</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>Ortografia y redaccion: Sin errores gramaticales u ortograficos</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+
+                    <!-- Area 2: Diseno + UX/UI -->
+                    <tr class="area-header">
+                        <td colspan="3">AREA 2: DISENO + UX/UI <span class="area-indicator design">DISENO + UX</span></td>
+                    </tr>
+                    <tr class="area-design">
+                        <td>Identidad visual: Colores y tipografia consistentes con la marca</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-design">
+                        <td>Imagenes: Calidad, tamano y relevancia (fotos reales de Miracle)</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-design">
+                        <td>Navegacion: Menu claro, accesible y funcional</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-design">
+                        <td>Responsive: Visualizacion correcta en movil, tablet y desktop</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-design">
+                        <td>Animaciones: Funcionan correctamente sin afectar rendimiento</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-design">
+                        <td>Footer: Informacion completa y galeria visible</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-design">
+                        <td>Velocidad de carga: Aceptable (menos de 3 segundos)</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="signatures">
+                <div class="signature-box pm">
+                    <div class="area-name">Project Manager + Marketing</div>
+                    <div class="signature-line"></div>
+                    <div class="name-date">
+                        <div>
+                            <label>Nombre</label>
+                            <input type="text" placeholder="Nombre completo">
+                        </div>
+                        <div>
+                            <label>Fecha</label>
+                            <input type="text" placeholder="DD/MM/AAAA">
+                        </div>
+                    </div>
+                </div>
+                <div class="signature-box design">
+                    <div class="area-name">Diseno + UX/UI</div>
+                    <div class="signature-line"></div>
+                    <div class="name-date">
+                        <div>
+                            <label>Nombre</label>
+                            <input type="text" placeholder="Nombre completo">
+                        </div>
+                        <div>
+                            <label>Fecha</label>
+                            <input type="text" placeholder="DD/MM/AAAA">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== PAGINA 2: ABOUT ==================== -->
+        <div class="section">
+            <h2 class="section-title">
+                2. PAGINA NOSOTROS
+                <span class="page-url">about.html</span>
+            </h2>
+
+            <table class="review-table">
+                <thead>
+                    <tr>
+                        <th class="criterio">Criterio de Evaluacion</th>
+                        <th class="estado">Estado</th>
+                        <th class="observaciones">Observaciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="area-header">
+                        <td colspan="3">AREA 1: PROJECT MANAGER + MARKETING <span class="area-indicator pm">PM + MKT</span></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>Historia de la empresa: Informacion precisa y actualizada</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>Mision, Vision, Valores: Alineados con la identidad corporativa</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>Estadisticas: Anos de experiencia, proyectos, m3 correctos</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>Compromisos/Valores: Informacion correcta y relevante</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>Ortografia y redaccion: Sin errores</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+
+                    <tr class="area-header">
+                        <td colspan="3">AREA 2: DISENO + UX/UI <span class="area-indicator design">DISENO + UX</span></td>
+                    </tr>
+                    <tr class="area-design">
+                        <td>Banner/Hero: Imagen adecuada y texto legible</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-design">
+                        <td>Fotografias: Imagenes reales de Miracle, no stock</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-design">
+                        <td>Jerarquia visual: Informacion organizada y facil de escanear</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-design">
+                        <td>Responsive: Visualizacion correcta en todos los dispositivos</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-design">
+                        <td>Acordeones: Animacion y funcionalidad correcta</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="signatures">
+                <div class="signature-box pm">
+                    <div class="area-name">Project Manager + Marketing</div>
+                    <div class="signature-line"></div>
+                    <div class="name-date">
+                        <div><label>Nombre</label><input type="text" placeholder="Nombre completo"></div>
+                        <div><label>Fecha</label><input type="text" placeholder="DD/MM/AAAA"></div>
+                    </div>
+                </div>
+                <div class="signature-box design">
+                    <div class="area-name">Diseno + UX/UI</div>
+                    <div class="signature-line"></div>
+                    <div class="name-date">
+                        <div><label>Nombre</label><input type="text" placeholder="Nombre completo"></div>
+                        <div><label>Fecha</label><input type="text" placeholder="DD/MM/AAAA"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== PAGINA 3: SERVICES ==================== -->
+        <div class="section">
+            <h2 class="section-title">
+                3. PAGINA PRODUCTOS
+                <span class="page-url">services.html</span>
+            </h2>
+
+            <table class="review-table">
+                <thead>
+                    <tr>
+                        <th class="criterio">Criterio de Evaluacion</th>
+                        <th class="estado">Estado</th>
+                        <th class="observaciones">Observaciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="area-header">
+                        <td colspan="3">AREA 1: PROJECT MANAGER + MARKETING <span class="area-indicator pm">PM + MKT</span></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>Hero con video: Mensaje claro sobre productos</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>Concreto Estructural: Descripcion tecnica correcta</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>Concreto Convencional: Descripcion tecnica correcta</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>Concreto MR: Especificaciones tecnicas correctas</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>Concreto Arquitectonico: Descripcion correcta</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>Asesoria Tecnica: Informacion del servicio correcta</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>CTAs: Enlaces a cotizacion funcionando</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+
+                    <tr class="area-header">
+                        <td colspan="3">AREA 2: DISENO + UX/UI <span class="area-indicator design">DISENO + UX</span></td>
+                    </tr>
+                    <tr class="area-design">
+                        <td>Video Hero: Carga correcta y calidad adecuada</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-design">
+                        <td>Imagenes de productos: Fotos reales de Miracle</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-design">
+                        <td>Cards de productos: Diseno uniforme y atractivo</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-design">
+                        <td>Iconografia: Iconos apropiados para cada producto</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-design">
+                        <td>Responsive: Visualizacion correcta en todos los dispositivos</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="signatures">
+                <div class="signature-box pm">
+                    <div class="area-name">Project Manager + Marketing</div>
+                    <div class="signature-line"></div>
+                    <div class="name-date">
+                        <div><label>Nombre</label><input type="text" placeholder="Nombre completo"></div>
+                        <div><label>Fecha</label><input type="text" placeholder="DD/MM/AAAA"></div>
+                    </div>
+                </div>
+                <div class="signature-box design">
+                    <div class="area-name">Diseno + UX/UI</div>
+                    <div class="signature-line"></div>
+                    <div class="name-date">
+                        <div><label>Nombre</label><input type="text" placeholder="Nombre completo"></div>
+                        <div><label>Fecha</label><input type="text" placeholder="DD/MM/AAAA"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== PAGINA 4: PROJECTS ==================== -->
+        <div class="section">
+            <h2 class="section-title">
+                4. PAGINA PROYECTOS
+                <span class="page-url">projects.html</span>
+            </h2>
+
+            <table class="review-table">
+                <thead>
+                    <tr>
+                        <th class="criterio">Criterio de Evaluacion</th>
+                        <th class="estado">Estado</th>
+                        <th class="observaciones">Observaciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="area-header">
+                        <td colspan="3">AREA 1: PROJECT MANAGER + MARKETING <span class="area-indicator pm">PM + MKT</span></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>Hero con video: Mensaje sobre proyectos claro</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>Estadisticas: Cifras correctas (anos, proyectos, m3)</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>6 Sectores: Informacion correcta (Residencial, Inmobiliario, Comercial, Hotelero, Infraestructura, Industrial)</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>Acordeones expandibles: Informacion detallada correcta</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>Proceso de trabajo (6 pasos): Descripcion correcta</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>CTAs a contacto: Enlaces funcionando correctamente</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+
+                    <tr class="area-header">
+                        <td colspan="3">AREA 2: DISENO + UX/UI <span class="area-indicator design">DISENO + UX</span></td>
+                    </tr>
+                    <tr class="area-design">
+                        <td>Video Hero: Carga, reproduccion y centrado correcto</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-design">
+                        <td>Cards de sectores: Imagenes reales y diseno uniforme</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-design">
+                        <td>Acordeones: Animacion y funcionalidad correcta</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-design">
+                        <td>Contadores animados: Funcionan correctamente</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-design">
+                        <td>Responsive: Visualizacion correcta en todos los dispositivos</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="signatures">
+                <div class="signature-box pm">
+                    <div class="area-name">Project Manager + Marketing</div>
+                    <div class="signature-line"></div>
+                    <div class="name-date">
+                        <div><label>Nombre</label><input type="text" placeholder="Nombre completo"></div>
+                        <div><label>Fecha</label><input type="text" placeholder="DD/MM/AAAA"></div>
+                    </div>
+                </div>
+                <div class="signature-box design">
+                    <div class="area-name">Diseno + UX/UI</div>
+                    <div class="signature-line"></div>
+                    <div class="name-date">
+                        <div><label>Nombre</label><input type="text" placeholder="Nombre completo"></div>
+                        <div><label>Fecha</label><input type="text" placeholder="DD/MM/AAAA"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== PAGINA 5: COTIZACION ==================== -->
+        <div class="section">
+            <h2 class="section-title">
+                5. PAGINA COTIZACIONES
+                <span class="page-url">cotizacion.html</span>
+            </h2>
+
+            <table class="review-table">
+                <thead>
+                    <tr>
+                        <th class="criterio">Criterio de Evaluacion</th>
+                        <th class="estado">Estado</th>
+                        <th class="observaciones">Observaciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="area-header">
+                        <td colspan="3">AREA 1: PROJECT MANAGER + MARKETING <span class="area-indicator pm">PM + MKT</span></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>Hero: Mensaje claro sobre proceso de cotizacion</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>Pasos del proceso: Informacion clara y correcta</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>FAQs: Preguntas relevantes y respuestas correctas</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>Informacion de contacto: Datos correctos</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>CTAs: Enlaces a contacto y WhatsApp funcionando</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+
+                    <tr class="area-header">
+                        <td colspan="3">AREA 2: DISENO + UX/UI <span class="area-indicator design">DISENO + UX</span></td>
+                    </tr>
+                    <tr class="area-design">
+                        <td>Hero: Imagen adecuada y centrado correcto</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-design">
+                        <td>Imagenes: Fotos reales de Miracle</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-design">
+                        <td>Acordeones FAQ: Funcionalidad correcta</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-design">
+                        <td>Responsive: Visualizacion correcta en todos los dispositivos</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="signatures">
+                <div class="signature-box pm">
+                    <div class="area-name">Project Manager + Marketing</div>
+                    <div class="signature-line"></div>
+                    <div class="name-date">
+                        <div><label>Nombre</label><input type="text" placeholder="Nombre completo"></div>
+                        <div><label>Fecha</label><input type="text" placeholder="DD/MM/AAAA"></div>
+                    </div>
+                </div>
+                <div class="signature-box design">
+                    <div class="area-name">Diseno + UX/UI</div>
+                    <div class="signature-line"></div>
+                    <div class="name-date">
+                        <div><label>Nombre</label><input type="text" placeholder="Nombre completo"></div>
+                        <div><label>Fecha</label><input type="text" placeholder="DD/MM/AAAA"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== PAGINA 6: PORTFOLIO ==================== -->
+        <div class="section">
+            <h2 class="section-title">
+                6. PAGINA PORTAFOLIO
+                <span class="page-url">portfolio.html</span>
+            </h2>
+
+            <table class="review-table">
+                <thead>
+                    <tr>
+                        <th class="criterio">Criterio de Evaluacion</th>
+                        <th class="estado">Estado</th>
+                        <th class="observaciones">Observaciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="area-header">
+                        <td colspan="3">AREA 1: PROJECT MANAGER + MARKETING <span class="area-indicator pm">PM + MKT</span></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>Banner: Mensaje claro sobre galeria de proyectos</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>Descripcion: Texto introductorio apropiado</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>Variedad de imagenes: Representan diferentes tipos de proyectos</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>CTA final: Enlace a contacto funcionando</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+
+                    <tr class="area-header">
+                        <td colspan="3">AREA 2: DISENO + UX/UI <span class="area-indicator design">DISENO + UX</span></td>
+                    </tr>
+                    <tr class="area-design">
+                        <td>Galeria: 12 imagenes reales de Miracle (sin repetir)</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-design">
+                        <td>Calidad de imagenes: Resolucion adecuada</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-design">
+                        <td>Lightbox/Popup: Funciona correctamente al hacer clic</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-design">
+                        <td>Grid de galeria: Distribucion visual equilibrada</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-design">
+                        <td>Responsive: Visualizacion correcta en todos los dispositivos</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="signatures">
+                <div class="signature-box pm">
+                    <div class="area-name">Project Manager + Marketing</div>
+                    <div class="signature-line"></div>
+                    <div class="name-date">
+                        <div><label>Nombre</label><input type="text" placeholder="Nombre completo"></div>
+                        <div><label>Fecha</label><input type="text" placeholder="DD/MM/AAAA"></div>
+                    </div>
+                </div>
+                <div class="signature-box design">
+                    <div class="area-name">Diseno + UX/UI</div>
+                    <div class="signature-line"></div>
+                    <div class="name-date">
+                        <div><label>Nombre</label><input type="text" placeholder="Nombre completo"></div>
+                        <div><label>Fecha</label><input type="text" placeholder="DD/MM/AAAA"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== PAGINA 7: CONTACT ==================== -->
+        <div class="section">
+            <h2 class="section-title">
+                7. PAGINA CONTACTO
+                <span class="page-url">contact.html</span>
+            </h2>
+
+            <table class="review-table">
+                <thead>
+                    <tr>
+                        <th class="criterio">Criterio de Evaluacion</th>
+                        <th class="estado">Estado</th>
+                        <th class="observaciones">Observaciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="area-header">
+                        <td colspan="3">AREA 1: PROJECT MANAGER + MARKETING <span class="area-indicator pm">PM + MKT</span></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>Banner: Mensaje de contacto claro</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>Direccion fisica: Correcta y completa</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>Telefono: Numero correcto (+52 322 224 7200)</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>Email: Correcto (info@concretosmiracle.com)</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>Horarios de atencion: Informacion correcta</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>Redes sociales: Enlaces correctos a Facebook, Instagram, WhatsApp</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+
+                    <tr class="area-header">
+                        <td colspan="3">AREA 2: DISENO + UX/UI <span class="area-indicator design">DISENO + UX</span></td>
+                    </tr>
+                    <tr class="area-design">
+                        <td>Formulario de contacto: Campos apropiados y funcionales</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-design">
+                        <td>Validacion del formulario: Funciona correctamente</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-design">
+                        <td>Mapa de Google: Ubicacion correcta de la empresa</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-design">
+                        <td>Imagenes: Fotos reales de Miracle</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-design">
+                        <td>Responsive: Visualizacion correcta en todos los dispositivos</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="signatures">
+                <div class="signature-box pm">
+                    <div class="area-name">Project Manager + Marketing</div>
+                    <div class="signature-line"></div>
+                    <div class="name-date">
+                        <div><label>Nombre</label><input type="text" placeholder="Nombre completo"></div>
+                        <div><label>Fecha</label><input type="text" placeholder="DD/MM/AAAA"></div>
+                    </div>
+                </div>
+                <div class="signature-box design">
+                    <div class="area-name">Diseno + UX/UI</div>
+                    <div class="signature-line"></div>
+                    <div class="name-date">
+                        <div><label>Nombre</label><input type="text" placeholder="Nombre completo"></div>
+                        <div><label>Fecha</label><input type="text" placeholder="DD/MM/AAAA"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== PAGINA 8: FAQS ==================== -->
+        <div class="section">
+            <h2 class="section-title">
+                8. PAGINA PREGUNTAS FRECUENTES
+                <span class="page-url">faqs.html</span>
+            </h2>
+
+            <table class="review-table">
+                <thead>
+                    <tr>
+                        <th class="criterio">Criterio de Evaluacion</th>
+                        <th class="estado">Estado</th>
+                        <th class="observaciones">Observaciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="area-header">
+                        <td colspan="3">AREA 1: PROJECT MANAGER + MARKETING <span class="area-indicator pm">PM + MKT</span></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>Preguntas: Relevantes para clientes potenciales</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>Respuestas: Informacion tecnica correcta</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>Categorizacion: FAQs organizadas por tema</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>CTA: Enlace a contacto para mas preguntas</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+
+                    <tr class="area-header">
+                        <td colspan="3">AREA 2: DISENO + UX/UI <span class="area-indicator design">DISENO + UX</span></td>
+                    </tr>
+                    <tr class="area-design">
+                        <td>Acordeones: Funcionan correctamente</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-design">
+                        <td>Imagenes: Fotos reales de Miracle</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-design">
+                        <td>Legibilidad: Texto facil de leer</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-design">
+                        <td>Responsive: Visualizacion correcta en todos los dispositivos</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="signatures">
+                <div class="signature-box pm">
+                    <div class="area-name">Project Manager + Marketing</div>
+                    <div class="signature-line"></div>
+                    <div class="name-date">
+                        <div><label>Nombre</label><input type="text" placeholder="Nombre completo"></div>
+                        <div><label>Fecha</label><input type="text" placeholder="DD/MM/AAAA"></div>
+                    </div>
+                </div>
+                <div class="signature-box design">
+                    <div class="area-name">Diseno + UX/UI</div>
+                    <div class="signature-line"></div>
+                    <div class="name-date">
+                        <div><label>Nombre</label><input type="text" placeholder="Nombre completo"></div>
+                        <div><label>Fecha</label><input type="text" placeholder="DD/MM/AAAA"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== PAGINA 9: TESTIMONIALS ==================== -->
+        <div class="section">
+            <h2 class="section-title">
+                9. PAGINA TESTIMONIOS
+                <span class="page-url">testimonials.html</span>
+            </h2>
+
+            <table class="review-table">
+                <thead>
+                    <tr>
+                        <th class="criterio">Criterio de Evaluacion</th>
+                        <th class="estado">Estado</th>
+                        <th class="observaciones">Observaciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="area-header">
+                        <td colspan="3">AREA 1: PROJECT MANAGER + MARKETING <span class="area-indicator pm">PM + MKT</span></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>Testimonios: Contenido autentico y verificable</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>Nombres/Empresas: Informacion correcta de clientes</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>Variedad: Testimonios de diferentes sectores</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>CTA: Enlace a contacto funcionando</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+
+                    <tr class="area-header">
+                        <td colspan="3">AREA 2: DISENO + UX/UI <span class="area-indicator design">DISENO + UX</span></td>
+                    </tr>
+                    <tr class="area-design">
+                        <td>Cards de testimonios: Diseno atractivo</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-design">
+                        <td>Fotos de clientes: Apropiadas o placeholders profesionales</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> N/A</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-design">
+                        <td>Slider/Carrusel: Funciona correctamente (si aplica)</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> N/A</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-design">
+                        <td>Responsive: Visualizacion correcta en todos los dispositivos</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="signatures">
+                <div class="signature-box pm">
+                    <div class="area-name">Project Manager + Marketing</div>
+                    <div class="signature-line"></div>
+                    <div class="name-date">
+                        <div><label>Nombre</label><input type="text" placeholder="Nombre completo"></div>
+                        <div><label>Fecha</label><input type="text" placeholder="DD/MM/AAAA"></div>
+                    </div>
+                </div>
+                <div class="signature-box design">
+                    <div class="area-name">Diseno + UX/UI</div>
+                    <div class="signature-line"></div>
+                    <div class="name-date">
+                        <div><label>Nombre</label><input type="text" placeholder="Nombre completo"></div>
+                        <div><label>Fecha</label><input type="text" placeholder="DD/MM/AAAA"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== REVISION GLOBAL ==================== -->
+        <div class="section">
+            <h2 class="section-title">
+                10. REVISION GLOBAL DEL SITIO
+                <span class="page-url">Elementos transversales</span>
+            </h2>
+
+            <table class="review-table">
+                <thead>
+                    <tr>
+                        <th class="criterio">Criterio de Evaluacion</th>
+                        <th class="estado">Estado</th>
+                        <th class="observaciones">Observaciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="area-header">
+                        <td colspan="3">AREA 1: PROJECT MANAGER + MARKETING <span class="area-indicator pm">PM + MKT</span></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>SEO: Meta titulos y descripciones en todas las paginas</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>Google Analytics: Codigo instalado (G-HJNH0R759V)</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>Navegacion: Menu consistente en todas las paginas</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>Enlaces internos: Todos funcionan correctamente</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>Enlaces externos: Redes sociales y WhatsApp funcionan</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-pm">
+                        <td>Sitemap.xml: Actualizado con todas las paginas</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+
+                    <tr class="area-header">
+                        <td colspan="3">AREA 2: DISENO + UX/UI <span class="area-indicator design">DISENO + UX</span></td>
+                    </tr>
+                    <tr class="area-design">
+                        <td>Header: Consistente en todas las paginas</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-design">
+                        <td>Footer: Consistente en todas las paginas (sin newsletter)</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-design">
+                        <td>Favicon: Visible en todas las pestanas</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-design">
+                        <td>Scroll to top: Funciona en todas las paginas</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-design">
+                        <td>Compatibilidad: Chrome, Firefox, Safari, Edge</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                    <tr class="area-design">
+                        <td>Performance: Tiempo de carga aceptable (&lt;3 seg)</td>
+                        <td class="estado">
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> OK</label>
+                                <label class="checkbox-item"><input type="checkbox"> OBS</label>
+                                <label class="checkbox-item"><input type="checkbox"> Falla</label>
+                            </div>
+                        </td>
+                        <td><textarea class="obs-input" placeholder="Observaciones..."></textarea></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="signatures">
+                <div class="signature-box pm">
+                    <div class="area-name">Project Manager + Marketing</div>
+                    <div class="signature-line"></div>
+                    <div class="name-date">
+                        <div><label>Nombre</label><input type="text" placeholder="Nombre completo"></div>
+                        <div><label>Fecha</label><input type="text" placeholder="DD/MM/AAAA"></div>
+                    </div>
+                </div>
+                <div class="signature-box design">
+                    <div class="area-name">Diseno + UX/UI</div>
+                    <div class="signature-line"></div>
+                    <div class="name-date">
+                        <div><label>Nombre</label><input type="text" placeholder="Nombre completo"></div>
+                        <div><label>Fecha</label><input type="text" placeholder="DD/MM/AAAA"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== RESUMEN FINAL ==================== -->
+        <div class="final-summary">
+            <h3>RESUMEN EJECUTIVO Y APROBACION FINAL</h3>
+
+            <div class="summary-grid">
+                <div class="summary-item">
+                    <div class="number">9</div>
+                    <div class="label">Paginas Revisadas</div>
+                </div>
+                <div class="summary-item">
+                    <div class="number">___</div>
+                    <div class="label">Criterios Evaluados</div>
+                </div>
+                <div class="summary-item">
+                    <div class="number">___</div>
+                    <div class="label">Observaciones/Fallas</div>
+                </div>
+            </div>
+
+            <div style="margin-bottom: 30px;">
+                <h4 style="color: #f7941d; margin-bottom: 15px;">Observaciones Generales</h4>
+                <textarea class="obs-input" style="width: 100%; min-height: 100px; background: rgba(255,255,255,0.1); color: white; border-color: rgba(255,255,255,0.3);" placeholder="Escriba aqui las observaciones generales del equipo..."></textarea>
+            </div>
+
+            <div style="margin-bottom: 30px;">
+                <h4 style="color: #f7941d; margin-bottom: 15px;">Decision Final</h4>
+                <div style="display: flex; gap: 30px; justify-content: center; flex-wrap: wrap;">
+                    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                        <input type="checkbox" style="width: 24px; height: 24px;">
+                        <span style="font-size: 16px;">APROBADO PARA PRODUCCION</span>
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                        <input type="checkbox" style="width: 24px; height: 24px;">
+                        <span style="font-size: 16px;">REQUIERE CORRECCIONES</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="final-approval">
+                <div class="approval-box">
+                    <h4>Aprobacion Project Manager + Marketing</h4>
+                    <div class="signature-line" style="border-color: rgba(255,255,255,0.5);"></div>
+                    <input type="text" placeholder="Nombre completo">
+                    <input type="text" placeholder="Cargo">
+                    <input type="text" placeholder="Fecha">
+                </div>
+                <div class="approval-box">
+                    <h4>Aprobacion Diseno + UX/UI</h4>
+                    <div class="signature-line" style="border-color: rgba(255,255,255,0.5);"></div>
+                    <input type="text" placeholder="Nombre completo">
+                    <input type="text" placeholder="Cargo">
+                    <input type="text" placeholder="Fecha">
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; color: #999; font-size: 12px;">
+            <p>Documento generado para Concretos Miracle | Control de Calidad QA/QC</p>
+            <p>Version del documento: 2.0 | Enero 2026</p>
+            <p>URL: concretosmiracle.com | Repositorio: github.com/teseodataweb/Sitio_miracle</p>
+        </div>
+    </div>
+</body>
+</html>
